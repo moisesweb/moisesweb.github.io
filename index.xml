@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning Stuffs</title>
+    <link>https://moisesvw.github.io/</link>
+    <description>Recent content on Machine Learning Stuffs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Nov 2017 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://moisesvw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deep Learning on Cervix Screening</title>
+      <link>https://moisesvw.github.io/2017/november/deep-learning-on-cervix-screening/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://moisesvw.github.io/2017/november/deep-learning-on-cervix-screening/</guid>
+      <description>Machine Learning Engineer Nanodegree I. Definition Project Overview Cervical cancer has become one of the most important causes of death in women by cancer at the global level [1]. In recent years artificial intelligence has played important role on detection of cervical cancer. Department of Biomedical Engineering of University of Malaya has an article that reviews 103 journal papers from 2010 and 2014, this article analyzes intelligent systems to detect cervical cancer using techniques like artificial neural networks, support vector machines, decision trees, among others [2].</description>
+    </item>
+    
+    <item>
+      <title>Traffic Sign Recognition</title>
+      <link>https://moisesvw.github.io/2017/march/traffic-sign-recognition/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://moisesvw.github.io/2017/march/traffic-sign-recognition/</guid>
+      <description>Build a Traffic Sign Recognition Project The goals / steps of this project are the following:
+ Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the new images Summarize the results with a written report  Data Set Summary &amp;amp; Exploration 1.</description>
+    </item>
+    
+    <item>
+      <title>Lane Lines I</title>
+      <link>https://moisesvw.github.io/2017/february/lane-lines-i/</link>
+      <pubDate>Thu, 23 Feb 2017 21:08:37 -0500</pubDate>
+      
+      <guid>https://moisesvw.github.io/2017/february/lane-lines-i/</guid>
+      <description>Finding Lane Lines on the Road Intro In self-driving car detecting lane lines it is necessary to guide cars in the roads this project shows several techniques needed to achieve this important task. The goal it is to find both left and right lane lines by plotting colored lines over its respective lane lines pixels in the image.
+Finding Lane Lines on the Road
+The goals of this project are the following:</description>
+    </item>
+    
+  </channel>
+</rss>

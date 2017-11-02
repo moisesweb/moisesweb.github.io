@@ -1,0 +1,2039 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.25">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Deep Learning on Cervix Screening</title>
+    <meta name="author" content="Moisés Vargas">
+    <meta name="keywords" content=", machine-learning, self-driving-cars">
+
+    <link rel="icon" href="/robot-network-icon.png">
+    
+
+    
+    <meta name="description" content="Machine Learning Engineer Nanodegree I. Definition Project Overview Cervical cancer has become one of the most important causes of death in women by cancer at the global level [1]. In recent years artificial intelligence has played important role on detection of cervical cancer. Department of Biomedical Engineering of University of Malaya has an article that reviews 103 journal papers from 2010 and 2014, this article analyzes intelligent systems to detect cervical cancer using techniques like artificial neural networks, support vector machines, decision trees, among others [2].">
+    <meta property="og:description" content="Machine Learning Engineer Nanodegree I. Definition Project Overview Cervical cancer has become one of the most important causes of death in women by cancer at the global level [1]. In recent years artificial intelligence has played important role on detection of cervical cancer. Department of Biomedical Engineering of University of Malaya has an article that reviews 103 journal papers from 2010 and 2014, this article analyzes intelligent systems to detect cervical cancer using techniques like artificial neural networks, support vector machines, decision trees, among others [2].">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Deep Learning on Cervix Screening">
+    <meta property="og:url" content="/2017/november/deep-learning-on-cervix-screening/">
+    <meta property="og:site_name" content="Machine Learning Stuffs">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Machine Learning Stuffs">
+    <meta name="twitter:description" content="Machine Learning Engineer Nanodegree I. Definition Project Overview Cervical cancer has become one of the most important causes of death in women by cancer at the global level [1]. In recent years artificial intelligence has played important role on detection of cervical cancer. Department of Biomedical Engineering of University of Malaya has an article that reviews 103 journal papers from 2010 and 2014, this article analyzes intelligent systems to detect cervical cancer using techniques like artificial neural networks, support vector machines, decision trees, among others [2].">
+    
+      <meta name="twitter:creator" content="@moisesvw">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://pbs.twimg.com/profile_images/614655468250791936/c1kDNGy2_400x400.png">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-92619527-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Machine Learning Stuffs</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://pbs.twimg.com/profile_images/614655468250791936/c1kDNGy2_400x400.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="https://pbs.twimg.com/profile_images/614655468250791936/c1kDNGy2_400x400.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Moisés Vargas</h4>
+        
+          <h5 class="sidebar-profile-bio">I&rsquo;m a Machine Learning addict!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/self-driving-cars">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bus"></i>
+      
+      <span class="sidebar-button-desc">Self Driving Cars</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/machine-learning">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-gears"></i>
+      
+      <span class="sidebar-button-desc">Machine Learning</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/moisesvw" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/moisesvw/" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/moisesvw" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Deep Learning on Cervix Screening
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-11-01T00:00:00-05:00">
+      
+  November 1, 2017
+
+    </time>
+  
+  
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h2 id="machine-learning-engineer-nanodegree">Machine Learning Engineer Nanodegree</h2>
+
+<h2 id="i-definition">I. Definition</h2>
+
+<h3 id="project-overview">Project Overview</h3>
+
+<p>Cervical cancer has become one of the most important causes of death in women by cancer at the global level [1]. In recent  years artificial intelligence has played important role on detection of cervical cancer. Department of Biomedical Engineering of University of Malaya has an article that reviews 103 journal papers from 2010 and 2014, this article analyzes intelligent systems to detect cervical cancer using techniques like artificial neural networks, support vector machines, decision trees, among others [2].</p>
+
+<p>Cervical cancer can take up to three decades to develop, due to the delay, it is crucial that cervical cancer be discovered in time. This allows patients to receive the appropriate method of treatment. Even with  the proper technology to detect cervical cancer, many women at high risk for cervical cancer receive treatment that will not work for them due to the position of their cervix [3]. It is necessary to have proper technology to determine which kind of treatment is appropriate for each patient. Intel, in partnering with MobileODT, has initiated a challenge in June 2017 with the aim of identifying which type of cervix a patient has, given a cervix image [3]. The aim of this project is to develop a deep neural network that can detect the type of cervix present in a patient.</p>
+
+<h3 id="problem-statement">Problem Statement</h3>
+
+<p>Cervical cancer stages can be detected with current artificial intelligence methods, however there are different treatments that depend on patient physiology. Quickly detecting which type of cervix a patient has would lower the risk of applying the wrong treatment to a patient and will increase the survival possibilities of women with high risk for cervical cancer. By analyzing different types of cervices with image data, an artificial intelligence method can detect to which type of cervix a cervix image belongs. This classification would potentially help the patient to receive the correct treatment that better matches the patient’s physiology.</p>
+
+<p>This document proposes to use the LeNet 5 architecture [4] as the benchmark model, to feed
+a resized version of the original data 32x32 pixels, with RGB channels and to measure the training, validation and test sets to obtain the baseline accuracy.</p>
+
+<p>This project proposes to develop a Convolutional Neural Network (ConvNet) that will receive a cervix image and the ConvNet will predict to which type of cervix a cervix image belongs. The baseline model is a ConvNet with well known architecture LeNet-5 [4]; after tuning and image preprocessing, the performance will be measured. The aim is to improve the baseline model to get better results by modifying the parameters and network architecture.</p>
+
+<h3 id="metrics">Metrics</h3>
+
+<p>The proposed metric to use on both the solution and benchmark models is the accuracy, and it will measure the model performance by counting the number of correct predictions. For example, for a given data set, the model will classify which type of cervix is detected in each image. If the data set contains 100 images and only 50 were correctly predicted, the accuracy is defined as follows:
+<sup>50</sup>&frasl;<sub>100</sub> = 0.5. This  means that the model performance has 50%  accuracy. In general the metric is defined as follows: (number of correct predictions)/(total examples)</p>
+
+<h2 id="ii-analysis">II. Analysis</h2>
+
+<h3 id="data-exploration">Data Exploration</h3>
+
+<p>The data used in this project comes from Kaggle competition [5]. The data is comprised of image files that are organized in folders according to the cervix type label, namely folders are Type_1, Type_2 and Type_3. The initial data was in 7zip archive compression format, organized as follows: a training set train.7z of 5.54 GB and test set test.7z 1.93 GB. Additional sets for the three different classes was provided, additional_Type_1_v2.7z 4.49 GB, additional_Type_2_v2.7z 14.61 GB and additional_Type_3_v2.7z 6.66 GB.</p>
+
+<p>After augmenting the initial training data with additionals examples, the new training data has 8210 images distributed as follows, Type_1 1438 samples, Type_2 4346 samples and Type_3 2426 samples.</p>
+
+<p>The Figure below shows how the input data is not evenly distributed &ndash; the images of cervix type 2 with most occurrences.</p>
+
+<p><img src="/img/training_types.png" alt="alt text" title="Data label frequency" />
+Figure-1</p>
+
+<p>The next figures shows the images pixel distribution.</p>
+
+<p><img src="/img/training_width.png" alt="alt text" title="Data width frequency" />
+Figure-2</p>
+
+<p><img src="/img/training_height.png" alt="alt text" title="Data height frequency" />
+Figure-3</p>
+
+<p>In this section, 33GB of data will be extracted out from its zip files, data will be organized in three directories for its corresponding cervix type i.e Type_1, Type_2 and Type_3.</p>
+
+<p>With an imaging processing tool, the images will be inspected to determine  the image format, and to identify possible corrupt images. If corrupt images are detected, they will be removed from the data set.</p>
+
+<p>Explore and create basic counting of height and width of the images and find a reasonable image size to normalize all images. The data set is 33GB of size in disk, the image will be re-sized to reduce the images size on space disk.</p>
+
+<h3 id="exploratory-visualization">Exploratory Visualization</h3>
+
+<p>The images below shows 3 different types of cervix on this data set.</p>
+
+<p>The images are in RGB and HSV to compare this two color spaces of the cervix that helps to differentiate its types.</p>
+
+<p><img src="/img/type1.png" alt="alt text" title="Cervix Type 1" />
+Figure-4</p>
+
+<p><img src="/img/type2.png" alt="alt text" title="Cervix Type 2" />
+Figure-5</p>
+
+<p><img src="/img/type3.png" alt="alt text" title="Cervix Type 3" />
+Figure-6</p>
+
+<h3 id="algorithms-and-techniques">Algorithms and Techniques</h3>
+
+<p>As mentioned before, this project will use a Convolutional Neural Network (ConvNet) as classifier. The network has several parameters that needs to be tuned, including  number of epochs, batch size, learning rate, max pool layers and dropout layers. This technique and its parameters are discussed above.</p>
+
+<p>The ConvNet is trained using back-propagation to learn the weight parameters, these weights are used to activate neurons. The main difference of the ConvNet with respect to a regular neural network is that it is  specifically designed to recognize visual patterns directly from the image pixels [4].</p>
+
+<p><img src="/img/lenet-5.png" alt="alt text" title="LeNet-5" />
+Figure-7 Source: Yan LeCun</p>
+
+<p>The figure above shows the LeNet-5 architecture that is intended to be used in this project as the baseline model. The next paragraphs explain how this neural network architecture works when it receives the image and how the image is processed through the network until  the output.</p>
+
+<table>
+<thead>
+<tr>
+<th>Layer name</th>
+<th align="right">Size</th>
+<th align="right">Channels</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Input</td>
+<td align="right">32x32</td>
+<td align="right">1</td>
+</tr>
+
+<tr>
+<td>Convolution 1 (C1)</td>
+<td align="right">28x28</td>
+<td align="right">6</td>
+</tr>
+
+<tr>
+<td>Sub-sampling</td>
+<td align="right">14x14</td>
+<td align="right">6</td>
+</tr>
+
+<tr>
+<td>Convolution 2 (C2)</td>
+<td align="right">10x10</td>
+<td align="right">16</td>
+</tr>
+
+<tr>
+<td>Sub-sampling</td>
+<td align="right">5x5</td>
+<td align="right">16</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC1)</td>
+<td align="right">120</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC2)</td>
+<td align="right">84</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Output</td>
+<td align="right">10</td>
+<td align="right">-</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-1 LeNet5 architecture</p>
+
+<p>The table above denotes the architecture of LeNet-5, the input layer  is an image. In this example it is represented as  digits comprising images of 32x32 pixels. Here it can be assumed that the image is grayscale such that it has one channel. The dataset of this project are images with 3 channels of color space, for example, Red, Green and Blue.</p>
+
+<p>The first Convolution layer (C1) it is made by applying a convolution that basically scans the image with a patch of smaller size, in this case the patch is 5x5 pixels in size and applying an activation function on it. This patch is applied over the image horizontally and vertically. Once this process finishes, the result will be an image of 28x28. This process will happen six times building up the first convolution layer for the given image. Finally the dimensions of the (C1) layer will be 6@(channels)28x28. This layer represents the automatic extraction of features from the image that was fed into the network.</p>
+
+<p>The second layer is a sub-sampling (S2) that will have the same number of channels as the layer before and the features will be reduced by half, ending with dimensions 6@14x14. This means that a given image after passing the (C1) will end up in (S2) with size of 14x14 pixels and 6 transformations that came from the (C1) layer. The sub-sampling uses a function that is applied together with a patch, in this case the patch size is 2x2 and the function could be a Max function, for example, when you apply a Max function with patch size 2x2 to an image of 28x28 pixels, every patch will choose one pixel with the max value. This process applied to a 28x28 image will occur 196 times and returns an output of size 14x14. This kind of layer aims to reduce the space of feature while retaining the relevant features.</p>
+
+<p>The third layer (C3) it is a convolution similar to the first (C1) but with size of 16@10x10 as a result of applying a patch of size 5x5 pixels. Fourth layer (S4) same as (S2) at this point applied to (C3) ending with size of 16@5x5.</p>
+
+<p>Finally this network has two fully connected layers (FC5), its input is an unrolled version of layer (S4) which is a vector of 400 features (16x5x5) and its output is a vector of 100 features. Next, the sixth layer (FC6) receives as input a vector of 100 features and returns a vector of 84 features. The output layer receives the 84 features vector and returns a vector of 10 probabilities, the value of each position of the vector represents the probability of that position to be the class that represent the original image that was fed in the input layer.</p>
+
+<p>Beside  the convolution and Sub-sampling layers described above, there is another layer in this project call Dropout. The objective of this layer is to avoid overfitting the data in the network by randomly turning off connections between layers.</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>EPOCHS</td>
+<td align="right">Number of training passes</td>
+</tr>
+
+<tr>
+<td>BATCH_SIZE</td>
+<td align="right">Batch size in training</td>
+</tr>
+
+<tr>
+<td>learning rate</td>
+<td align="right">Initial rate for the optimizer</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-2 Model parameters</p>
+
+<p>Additional parameters</p>
+
+<p>Neural networks in general work with weights that are the main parameters of the network &ndash; they works as the neuron connections. The objective of the network in this case is to classify which type of cervix is present in an image. A good result in this task depends on how well these weight parameters get tuned by learning.</p>
+
+<p>All parts of the network that were discussed above (convolution layer with activation functions, sub-sampling layers, dropout layers and fully connected layers) are the foundation structure that helps to convey the learning to the network’s weights.
+The missing piece of this puzzle is the conveyor, which is the technique that iterates through the network, updating the weights, and this is controlled by the parameters listed in the table-5. The conveyor that is used by the ConvNet in this project is well known as AdamOptimizer. It, as well as others optimizers, uses Back-propagation to optimize the values of the weights that better optimize the neural network.</p>
+
+<p>Because the ConvNet needs image data and usually this kind of data consumes a large  amount of computational memory, it is necessary to train the network using batches, that means passing a subset of data to the network in the training process. To control the batch sizes, this project uses the parameter Batch Size. For instance if the data contains 8000 images, using a batch size of 64 produces 125 batches in training.
+The Epoch parameter helps to control how long the training operation will take. For instance, an epoch of 3 and batch size of 64 with 8000 examples of training will cause the optimizer to learn in 375(3*125) batches, for each batch, the network and the optimizer need to digest 64 images to adjust the weights.</p>
+
+<p>Finally, the learning rate is an initial parameter of the optimizer. It is optional because one characteristic of AdamOptimizer is that it automatically initializes and updates this learning rate. However, controlling this parameter by providing an initial value will affect the learning results by controlling how fast or slow the optimizer can converge to discover the weights.</p>
+
+<h3 id="benchmark">Benchmark</h3>
+
+<p>The benchmark model proposed in this project is the LeNet-5 architecture outlined in table-4 with a minor modification in the output layer to predict 3 different classes instead of 10. The benchmark uses the configuration of table-7. According with the metrics defined in Metrics section, the table-8 reports the measurements of the baseline model that will be used to compare with the final model. The data for the baseline model is randomly split in 60% for training 28% and 12% for test.</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>EPOCHS</td>
+<td align="right">15</td>
+</tr>
+
+<tr>
+<td>BATCH_SIZE</td>
+<td align="right">128</td>
+</tr>
+
+<tr>
+<td>learning rate</td>
+<td align="right">0.01</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-3 base model parameters</p>
+
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Train accuracy</td>
+<td align="right">0.654</td>
+</tr>
+
+<tr>
+<td>Validation accuracy</td>
+<td align="right">0.553</td>
+</tr>
+
+<tr>
+<td>Test Accuracy</td>
+<td align="right">0.551</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-4 Baseline model metrics</p>
+
+<h2 id="iii-methodology">III. Methodology</h2>
+
+<h3 id="data-preprocessing">Data Preprocessing</h3>
+
+<p>As part of the training and predictions tasks, this project implements a preprocessing pipeline before feeding the data to the neural network. The images are transformed in size and color space, and the data are balanced to have a similar number of examples per class.
+In the exploration section, the data of this project are described, the original zipped files train.7z
+additional_Type_1_v2.7z, additional_Type_2_v2.7z, additional_Type_3_v2.7z were unzipped and merged in a train folder. For each of the three classes, a sub folder was created and the corrupted files were deleted.</p>
+
+<p>Since the sizes of the images ranges from 3264x2448 pixels to 480x640 pixels, the images were normalized such that all images have the same dimension of 693x520. This helps not only to normalize the size of all images but to reduce the memory consumption of the images, for instance an image that size in bytes was 2Mb ends up in 300Kb. The images also are numerically normalized, since pixel values range from 0 - 255, and optimizer prefer to receive normalize data around zero, every image was divided by 255 a then 0.5 is subtracted  for all pixel images.</p>
+
+<p>In order to have a balanced dataset it was augmented using a data augmentation tool [6]. Since the majority of   images are of type 2 with 4346 samples, the trick used to balance images of type 1 and type 3 was to apply transformations for images of type 1 and type 3 in order to have similar number of examples per class. Some of the transformations applied were: add noise to images, rotate 90 or 45 degrees and flip vertically.</p>
+
+<p>In order to implement the final model, it was necessary to create helper functions to preprocess the input data.</p>
+
+<p>Being able to control the size of the image data when training ConvNet will be useful since it can reduce the amount of computation memory and the training time that the model can take. Also normalizing image data to be zero centered will help the model to converge better.</p>
+
+<pre><code>def resize_image(img, size=(820, 620), debug=False):
+    &quot;&quot;&quot;
+    resize image and return it
+    &quot;&quot;&quot;
+    h = size[0]
+    w = size[1]
+    img_ = cv2.resize(img, (w, h))
+    return img_
+</code></pre>
+
+<pre><code>def scale_image(img):
+    &quot;&quot;&quot;
+    normalize the image
+    &quot;&quot;&quot;
+    return img / 255.0 - 0.5
+</code></pre>
+
+<p>A function that receives an image and returns it as the model required was implemented to facilitate the image transformation. The code below shows this function named lamba_layer which receives an image, creates a copy, applies the resize function, changes the image color space(in this example this image is being converted from RGB to Gray), and finally  scales the image before returning it  to the model.</p>
+
+<pre><code>def lambda_layer(image):
+    &quot;&quot;&quot;
+    pre-process the image before pass it to the
+    ConvNet
+    &quot;&quot;&quot;
+    img_ = np.copy(image)
+    img_ = resize_image(img_, (H_IMG, W_IMG))
+    img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2GRAY)
+    img_ = img_[:, :, np.newaxis]
+    img_ = scale_image(img_)
+    return img_
+</code></pre>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>The implementation use Pandas to store the information for the images , OpenCV to read images from file system, scikit-learn as a helper to split the data into training, validation and tests sets, and TensorFlow to implement the ConvNet.</p>
+
+<p>This project use GPU-GRID K520 from AWS with 4GB of memory, however, not all of the data can be fed into the ConvNet because it will cause memory resource exhaustion. For that reason, it was necessary to implement a function generator to lazily generate batches of images that will be passed through the ConvNet. The code below shows how this function is implemented. The function receives a Pandas dataframe that contains images path and type, then maps this input to a randomized set of images that will be preprocessed. Each time this function is called, it will generate a set of images and labels according with the batch size.</p>
+
+<pre><code>def generator(samples,batch_size=128):
+    &quot;&quot;&quot;
+    Generates random batches of data base on image path
+    &quot;&quot;&quot;
+
+    num_samples = len(samples)
+    while True:
+        randomsamples = samples.sample(frac=1)
+        for offset in range(0, num_samples, batch_size):
+            batch_samples = samples[offset:offset+batch_size]
+            
+            images = []
+            labels = []
+            for _, row in batch_samples.iterrows():
+                image_path = row['image'].strip()
+
+                image = cv2.imread(image_path)
+                label = row['target']
+
+                images.append(lambda_layer(image))
+                labels.append(label)
+
+            X_train = np.array(images)
+            y_train = np.array(labels)
+
+            yield sklearn.utils.shuffle(X_train, y_train)
+</code></pre>
+
+<p>The evaluate function performs accuracy operations within a Tensorflow session and returns how well the model accuracy performs.</p>
+
+<pre><code>def evaluate(sess, generator, steps, accuracy_op, dict_opts={}):
+    total_examples = 0
+    total_accuracy = 0
+
+    for step in range(0, steps):
+        batch_x, batch_y = next(generator)
+        accuracy = sess.run(accuracy_op, feed_dict={ **{ x: batch_x, y: batch_y }, **dict_opts})
+        num_examples = len(batch_x)
+        total_accuracy += (accuracy * num_examples)
+        total_examples += num_examples
+    return total_accuracy / total_examples
+</code></pre>
+
+<p>The test_model function evaluates a stored model on the test set and reports its accuracy.</p>
+
+<pre><code>def test_model(test_gen, test_steps, accuracy_op, saver, dict_opts={}, name_model=&quot;.&quot;):
+    &quot;&quot;&quot;
+    Test a saved model with test data
+    &quot;&quot;&quot;
+    if not os.path.exists(name_model+&quot;.index&quot;):
+        print(name_model, &quot;Model does not exists in disk&quot;)
+        return False
+    with tf.Session() as sess:
+        saver.restore(sess, name_model)
+        test_accuracy = evaluate(sess, test_gen, test_steps, accuracy_op, dict_opts=dict_opts )
+        print(&quot;Test Accuracy = {:.3f}&quot;.format(test_accuracy))
+</code></pre>
+
+<p>The following function with name “training_validation” was created to perform training and validation of the model. The next paragraphs will explain every parameter that this function receive in order to make sense how the model is being trained.</p>
+
+<p>Function “training_validation” parameters:
+  * name_model:
+    The name of the model this will be used to store the model in disk and print results</p>
+
+<ul>
+<li><p>train_gen:
+As explained above this is an initialized generator function with training data</p></li>
+
+<li><p>val_gen:
+As explained above this is an initialized generator function with validation data</p></li>
+
+<li><p>train_steps and val_steps:
+Number of batches which contains both training and validation sets</p></li>
+
+<li><p>train_op:
+Tensorflow operation that minimize the loss function of the model.</p></li>
+
+<li><p>accuracy_op:
+Tensorflow operation that calculate the accuracy of the model</p></li>
+
+<li><p>saver:
+Object that can be used to store or retrieve a model</p></li>
+
+<li><p>train_opts:
+Options that can be passed to the feed dictionary of tensor training operation</p></li>
+
+<li><p>dict_ops:
+Options that can be passed to the feed dictionary of tensor for validation or test operations</p></li>
+
+<li><p>old_train and old_model:
+To control whether yes or not the training should be on top of a pre trained model</p></li>
+
+<li><p>store:
+To control whether yes or not store the final model</p></li>
+
+<li><p>epochs:
+Number of epochs the training will perform</p></li>
+</ul>
+
+<p>The training_validation function stores the model in each epoch such that the model can be retrained from one of the epoch results.</p>
+
+<pre><code>def training_validation(name_model, train_gen, val_gen, train_steps,
+                        val_steps, train_op, accuracy_op, saver,
+                        train_opts={}, dict_ops={}, old_train=False,
+                        old_model='', store=False, epochs=3):
+    &quot;&quot;&quot;
+    Train a model, store the model in disk and return the path
+    &quot;&quot;&quot;
+
+    return_data = {
+       'save_path': './'+name_model
+    }
+
+    with tf.Session() as sess:
+        if old_train:
+            if not os.path.exists('./'+old_model+&quot;.index&quot;):
+                print(old_model, &quot;Model does not exists in disk&quot;)
+                return return_data
+            saver.restore(sess, './'+old_model)
+        else:
+            sess.run(tf.global_variables_initializer())
+
+        print(name_model, &quot;Training...&quot;)
+        print()
+
+        for i in range(epochs):
+            for step in range(0, train_steps):
+                batch_x, batch_y = next(train_gen)
+
+                sess.run(train_op, feed_dict={**{x: batch_x, y: batch_y}, **train_opts })
+            
+            train_accu = evaluate(sess, train_gen, train_steps, accuracy_op, dict_opts=dict_ops)
+            val_accu = evaluate(sess, val_gen, val_steps, accuracy_op, dict_opts=dict_ops)
+
+            #Save trainning per epoch
+            saver.save(sess, './'+name_model+str(i+1))
+            print(&quot;EPOCH {} ...&quot;.format(i+1))
+            print(&quot;Train Accuracy = {:.3f}&quot;.format(train_accu))
+            print(&quot;Validation Accuracy = {:.3f}&quot;.format(val_accu))
+            print()
+
+
+            
+        if store:
+            saver.save(sess, return_data['save_path'])
+            print(name_model, &quot;Model saved&quot;)
+        
+    return return_data
+</code></pre>
+
+<p>The LeNet-5 architecture discussed in this project is implemented in the following function using Tensorflow.</p>
+
+<pre><code>def LeNet5(x, init_channels=1, fcx0_len=400):
+    mu = 0
+    sigma = 0.1
+    
+    conv1_W = tf.Variable(tf.truncated_normal(shape=(5, 5, init_channels, 6), mean = mu, stddev = sigma))
+    conv1_b = tf.Variable(tf.zeros(6))
+    conv1   = tf.nn.conv2d(x, conv1_W, strides=[1, 1, 1, 1], padding='VALID') + conv1_b
+
+    conv1 = tf.nn.relu(conv1)
+
+    conv1 = tf.nn.max_pool(conv1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
+
+    conv2_W = tf.Variable(tf.truncated_normal(shape=(5, 5, 6, 16), mean = mu, stddev = sigma))
+    conv2_b = tf.Variable(tf.zeros(16))
+    conv2   = tf.nn.conv2d(conv1, conv2_W, strides=[1, 1, 1, 1], padding='VALID') + conv2_b
+    
+    conv2 = tf.nn.relu(conv2)
+
+    conv2 = tf.nn.max_pool(conv2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='VALID')
+
+    fc0   = flatten(conv2)
+
+    fc1_W = tf.Variable(tf.truncated_normal(shape=(fc0_len, 120), mean = mu, stddev = sigma))
+    fc1_b = tf.Variable(tf.zeros(120))
+    fc1   = tf.matmul(fc0, fc1_W) + fc1_b
+    fc1   = tf.nn.relu(fc1)
+
+    fc2_W  = tf.Variable(tf.truncated_normal(shape=(120, 84), mean = mu, stddev = sigma))
+    fc2_b  = tf.Variable(tf.zeros(84))
+    fc2    = tf.matmul(fc1, fc2_W) + fc2_b
+    
+    fc2    = tf.nn.relu(fc2)
+
+    fc3_W  = tf.Variable(tf.truncated_normal(shape=(84, 3), mean = mu, stddev = sigma))
+    fc3_b  = tf.Variable(tf.zeros(3))
+    logits = tf.matmul(fc2, fc3_W) + fc3_b
+
+    return logits
+</code></pre>
+
+<p>The hyper parameters were initialized as follow</p>
+
+<pre><code>BATCH_SIZE = 128
+H_IMG, W_IMG = (32,32)
+EPOCHS = 6
+rate = 0.01
+</code></pre>
+
+<p>The following code shows how the data generators were initialized. Since this project contemplates that a training can start from an older, trained model, the train set, validation set and test set were stored in csv files and are retrieved from these files to be consistent with this data over all training process.</p>
+
+<pre><code>train_samples, validation_samples = train_test_split(data, test_size=0.4)
+validation_samples, test_samples  = train_test_split(validation_samples, test_size=0.3)
+
+train_generator = generator(train_samples, batch_size=BATCH_SIZE)
+validation_generator = generator(validation_samples, batch_size=BATCH_SIZE)
+test_generator = generator(test_samples, batch_size=BATCH_SIZE)
+
+train_steps      = math.ceil(len(train_samples)/BATCH_SIZE)
+validation_steps = math.ceil(len(validation_samples)/BATCH_SIZE)
+test_steps       = math.ceil(len(test_samples)/BATCH_SIZE)
+</code></pre>
+
+<p>The Tensorflow operations that use LeNet-5 architecture are shown in the following code:</p>
+
+<pre><code>x = tf.placeholder(tf.float32, (None, 32, 32, 1))
+y = tf.placeholder(tf.int32, (None))
+one_hot_y = tf.one_hot(y, 3)
+
+logits = LeNet5(x)
+cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=one_hot_y)
+loss_operation = tf.reduce_mean(cross_entropy)
+optimizer = tf.train.AdamOptimizer(learning_rate=rate)
+training_operation = optimizer.minimize(loss_operation)
+correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(one_hot_y, 1))
+accuracy_operation = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+</code></pre>
+
+<p>As discussed above, the function training_validation receives the training_operation and accuracy_operation and the other parameters previously described to train the model.</p>
+
+<pre><code>saver = tf.train.Saver()
+lenet_5_data = training_validation('lenet5', train_generator, validation_generator,
+                                   train_steps, validation_steps, training_operation,
+                                   accuracy_operation, saver, train_opts={}, dict_ops={},
+                                   old_train=False, store=True, epochs=EPOCHS)
+</code></pre>
+
+<p>finally to test the model the next code was used</p>
+
+<pre><code>test_model(test_generator, test_steps, accuracy_operation, saver, dict_opts={}, name_model=lenet_5_data['save_path'])
+</code></pre>
+
+<h3 id="refinement">Refinement</h3>
+
+<p>This section explains how the solution model based on LeNet-5 was built by applying modifications to the network in order to increase the performance of evaluation metrics that indicate better results than the benchmark model. Different experiments were performed with combinations of settings  specific to the Convolutional Neural Networks, for example,  adding or removing filters from convolutions, adding convolution layers, changing the patch size of the convolution, etc. In addition, experimentation with dropout layers and pooling layers are considered in this section to improve model performance.</p>
+
+<p>Experimentation using other color spaces for the images, like RGB, HSV, YCrCb, are considered, as well as the normalization of the images to be zero centered.
+After experimentation, the best model with best accuracy on training, validation and test sets will be chosen as finally solution model.</p>
+
+<p>The first model solution was based on LeNet-5 described in Algorithms and Techniques section, table-5 shows the architecture and table-6 the results of this architecture.</p>
+
+<table>
+<thead>
+<tr>
+<th>Layer name</th>
+<th align="right">Size</th>
+<th align="right">Channels</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Input</td>
+<td align="right">155x155</td>
+<td align="right">3</td>
+</tr>
+
+<tr>
+<td>Convolution 1 (C1)</td>
+<td align="right">151x151</td>
+<td align="right">6</td>
+</tr>
+
+<tr>
+<td>Sub-sampling</td>
+<td align="right">75x75</td>
+<td align="right">6</td>
+</tr>
+
+<tr>
+<td>Convolution 2 (C2)</td>
+<td align="right">71x71</td>
+<td align="right">16</td>
+</tr>
+
+<tr>
+<td>Sub-sampling</td>
+<td align="right">35x35</td>
+<td align="right">16</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC1)</td>
+<td align="right">120</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC2)</td>
+<td align="right">84</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Output</td>
+<td align="right">3</td>
+<td align="right">-</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-5 LeNet-5</p>
+
+<p>The ConvNet outlined in table-9 was trained using the following parameters using different color spaces and obtaining the results that shows table-10</p>
+
+<p>Parameters:
+  * EPOCHS = 10
+  * learning rate = 0.01</p>
+
+<table>
+<thead>
+<tr>
+<th>Color Space</th>
+<th align="right">Train</th>
+<th align="right">Validation</th>
+<th align="right">Test</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>RGB 3 channels</td>
+<td align="right">0.335</td>
+<td align="right">0.336</td>
+<td align="right">0.320</td>
+</tr>
+
+<tr>
+<td>HSV 3 channels</td>
+<td align="right">0.766</td>
+<td align="right">0.514</td>
+<td align="right">0.523</td>
+</tr>
+
+<tr>
+<td>YCrCb 3 channels</td>
+<td align="right">0.748</td>
+<td align="right">0.504</td>
+<td align="right">0.483</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-6 Report first solution</p>
+
+<p>As  table-6 shows, the best model in the first solution is the one that use HSV Color Space. Since this first solution model does not show big improvements based on the benchmark model, the next steps of improvement were to decrease the learning rate, increase number of epochs and add neurons in fully connected layers FC1 from 120 to 1000 and FC2 from 84 to 250 neurons.</p>
+
+<p>The table-7 shows the results of the model evaluated in the three color spaces. The model with YCrCb color space performs better that the other two, however it shows signs of overfitting.</p>
+
+<p>Parameters:
+  * EPOCHS = 10
+  * learning rate = 0.0008</p>
+
+<table>
+<thead>
+<tr>
+<th>Color Space</th>
+<th align="right">Train</th>
+<th align="right">Validation</th>
+<th align="right">Test</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>RGB 3 channels</td>
+<td align="right">0.997</td>
+<td align="right">0.641</td>
+<td align="right">0.619</td>
+</tr>
+
+<tr>
+<td>HSV 3 channels</td>
+<td align="right">0.979</td>
+<td align="right">0.648</td>
+<td align="right">0.630</td>
+</tr>
+
+<tr>
+<td>YCrCb 3 channels</td>
+<td align="right">0.985</td>
+<td align="right">0.646</td>
+<td align="right">0.623</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-7 Report solution first improvement</p>
+
+<p>The next improvement was to add dropout layers next to the fully connected layers FC1 and FC2 with value of (0.5) and increased number of epochs to 20. The results are shown in Table-8. This experiment results still suffers of overfitting despite the dropout layers.</p>
+
+<p>Parameters:
+  * EPOCHS = 20
+  * learning rate = 0.0008</p>
+
+<table>
+<thead>
+<tr>
+<th>Color Space</th>
+<th align="right">Train</th>
+<th align="right">Validation</th>
+<th align="right">Test</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>RGB 3 channels</td>
+<td align="right">0.997</td>
+<td align="right">0.648</td>
+<td align="right">0.620</td>
+</tr>
+
+<tr>
+<td>HSV 3 channels</td>
+<td align="right">0.999</td>
+<td align="right">0.660</td>
+<td align="right">0.663</td>
+</tr>
+
+<tr>
+<td>YCrCb 3 channels</td>
+<td align="right">0.997</td>
+<td align="right">0.654</td>
+<td align="right">0.641</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-8 Report solution second improvement</p>
+
+<p>Other experiments that were performed are shown in table-9, the intention was to explore different channels of color spaces and some combinations looking for decrease the overfitting. The kernel sizes of the pooling layers will be increased. Only HSV and YCrCb color spaces are considering for this experiment Table-9 shows the results.</p>
+
+<p>Parameters:
+  * EPOCHS = 20
+  * learning rate = 0.0008</p>
+
+<table>
+<thead>
+<tr>
+<th>Color Space</th>
+<th align="right">Train</th>
+<th align="right">Validation</th>
+<th align="right">Test</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HSV(Hue)</td>
+<td align="right">0.912</td>
+<td align="right">0.626</td>
+<td align="right">0.624</td>
+</tr>
+
+<tr>
+<td>HSV(Saturation)</td>
+<td align="right">0.960</td>
+<td align="right">0.672</td>
+<td align="right">0.656</td>
+</tr>
+
+<tr>
+<td>HSV(H+S)</td>
+<td align="right">0.954</td>
+<td align="right">0.676</td>
+<td align="right">0.658</td>
+</tr>
+
+<tr>
+<td>HSV(S+B)</td>
+<td align="right">0.970</td>
+<td align="right">0.683</td>
+<td align="right">0.637</td>
+</tr>
+
+<tr>
+<td>YCrCb(Y)</td>
+<td align="right">0.976</td>
+<td align="right">0.648</td>
+<td align="right">0.639</td>
+</tr>
+
+<tr>
+<td>YCrCb(Cr)</td>
+<td align="right">0.925</td>
+<td align="right">0.670</td>
+<td align="right">0.630</td>
+</tr>
+
+<tr>
+<td>YCrCb(Cb)</td>
+<td align="right">0.924</td>
+<td align="right">0.668</td>
+<td align="right">0.661</td>
+</tr>
+
+<tr>
+<td>YCrCb(Y+Cr)</td>
+<td align="right">0.921</td>
+<td align="right">0.658</td>
+<td align="right">0.615</td>
+</tr>
+
+<tr>
+<td>YCrCb(Cr+Cb)</td>
+<td align="right">0.946</td>
+<td align="right">0.686</td>
+<td align="right">0.665</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-9</p>
+
+<p>The results above indicate that the best model, according to the validation and test scores, is the one that uses HSV color space with H+S channels. All of the experimented models show strong signs of overfitting despite the effort to reduce it. In order to improve on the selected model, five re-trainings with 20 epochs each were performed,  keeping the learned weights of the previous trainings. However, the results were not different and the overfitting remained the same.</p>
+
+<p>This project considered to continue the evaluation of this model despite the overfitting due to time restriction. The model architecture obtained after perform the experiments is outlined in
+Table-10.</p>
+
+<table>
+<thead>
+<tr>
+<th>Layer name</th>
+<th align="right">Size</th>
+<th align="right">Channels</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Input</td>
+<td align="right">155x155</td>
+<td align="right">3</td>
+</tr>
+
+<tr>
+<td>Convolution 1 (C1)</td>
+<td align="right">149x149</td>
+<td align="right">6</td>
+</tr>
+
+<tr>
+<td>Sub-sampling</td>
+<td align="right">73x73</td>
+<td align="right">6</td>
+</tr>
+
+<tr>
+<td>Convolution 2 (C2)</td>
+<td align="right">69x69</td>
+<td align="right">16</td>
+</tr>
+
+<tr>
+<td>Sub-sampling</td>
+<td align="right">32x32</td>
+<td align="right">16</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC1)</td>
+<td align="right">1000</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Dropout(0.5)</td>
+<td align="right">-</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC2)</td>
+<td align="right">250</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Dropout(0.5)</td>
+<td align="right">-</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Output</td>
+<td align="right">3</td>
+<td align="right">-</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-10 Model architecture HSV (H+S)</p>
+
+<p>Since the first solution based on LeNet 5 did not bring the expected results, another approach call transfer learning using ConvNet architecture AlexNet [7] was used as an improvement. AlexNet is a pre-trained neural network that contains 60 million parameters and 650,000 neurons.</p>
+
+<p>The architecture of AlexNet is shown in Figure-8, it has five convolution layers, some max-pooling layers and three fully connected layers. This network was trained to classify 1.2 million images that can fall down into one of one thousand different categories.</p>
+
+<p><img src="/img/alex-net.png" alt="alt text" title="AlexNet" />
+Figure-8 Source: AlexNet [7]</p>
+
+<p>For this experiment the pre-trained AlexNet model was used with its convolution and two fully connected layers, the fully connected layers and output layers from the previous model LetNet-5 were appended to the last fully connected layer of AlexNet. The Table-11 shows the architecture of the new model.</p>
+
+<table>
+<thead>
+<tr>
+<th>Layer name</th>
+<th align="right">Size</th>
+<th align="right">Channels</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Input</td>
+<td align="right">155x155</td>
+<td align="right">3</td>
+</tr>
+
+<tr>
+<td>AlexNet Pretrained</td>
+<td align="right">4096</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC1)</td>
+<td align="right">1000</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Dropout(0.5)</td>
+<td align="right">-</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Fully connect (FC2)</td>
+<td align="right">250</td>
+<td align="right">-</td>
+</tr>
+
+<tr>
+<td>Output</td>
+<td align="right">3</td>
+<td align="right">-</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-11 AlexNet pretrained model</p>
+
+<p>With the model outlined above, several experiments were performed using the same color space as other experiments namely RGB, HSV and YCrCb. AlexNet performs better with RGB and the parameters above were used to obtain results of Table-12</p>
+
+<p>Parameters:
+  * EPOCHS = 100
+  * learning rate = 0.0008
+  * Color Space RGB</p>
+
+<table>
+<thead>
+<tr>
+<th>Metrics</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Train</td>
+<td align="right">0.959</td>
+</tr>
+
+<tr>
+<td>Validation</td>
+<td align="right">0.697</td>
+</tr>
+
+<tr>
+<td>Test</td>
+<td align="right">0.659</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-12 Report solution AlexNet</p>
+
+<h2 id="iv-results">IV. Results</h2>
+
+<h3 id="model-evaluation-and-validation">Model Evaluation and Validation</h3>
+
+<p>After the improvements, the model that  performed best according with the metrics was obtained using the following parameters.</p>
+
+<ul>
+<li>Image size (155) height, (155) width</li>
+<li>EPOCHS = 100</li>
+<li>learning rate = 0.0008</li>
+<li>Dropout = 0.5</li>
+<li>Color Space RGB</li>
+<li>AlexNet based architecture</li>
+</ul>
+
+<p>In this section three models are evaluated; the benchmark model, the first solution model based on LetNet-5 (Table-10) and the model based on AlexNet architecture (Table-11). The evaluation will use unseen test set containing 512 images with the following distribution: type1 87, type2 265, type3 160.</p>
+
+<p>Six images for each category were selected randomly from the unseen test set reporting their probabilities in the following tables for each model. The figures below shows these images.</p>
+
+<p><img src="/img/test_type_1.png" alt="alt text" title="Test Type 1" />
+Figure-9 Test Type 1</p>
+
+<p><img src="/img/test_type_2.png" alt="alt text" title="Test Type 2" />
+Figure-10 Test Type 2</p>
+
+<p><img src="/img/test_type_3.png" alt="alt text" title="Test Type 3" />
+Figure-11 Test Type 3</p>
+
+<table>
+<thead>
+<tr>
+<th>Unseen test images</th>
+<th align="right">Type 1</th>
+<th align="right">Type 2</th>
+<th align="right">Type 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>90.jpg  - Type 1</td>
+<td align="right">0.001</td>
+<td align="right">0.859</td>
+<td align="right">0.140</td>
+</tr>
+
+<tr>
+<td>232.jpg - Type 1</td>
+<td align="right">0.181</td>
+<td align="right">0.436</td>
+<td align="right">0.383</td>
+</tr>
+
+<tr>
+<td>315.jpg - Type 2</td>
+<td align="right">0.393</td>
+<td align="right">0.326</td>
+<td align="right">0.281</td>
+</tr>
+
+<tr>
+<td>206.jpg - Type 2</td>
+<td align="right">0.285</td>
+<td align="right">0.426</td>
+<td align="right">0.289</td>
+</tr>
+
+<tr>
+<td>418.jpg - Type 3</td>
+<td align="right">0.361</td>
+<td align="right">0.005</td>
+<td align="right">0.633</td>
+</tr>
+
+<tr>
+<td>49.jpg  - Type 3</td>
+<td align="right">0.175</td>
+<td align="right">0.423</td>
+<td align="right">0.402</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-13 Test data probabilities - benchmark model</p>
+
+<table>
+<thead>
+<tr>
+<th>Unseen test images</th>
+<th align="right">Type 1</th>
+<th align="right">Type 2</th>
+<th align="right">Type 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>90.jpg  - Type 1</td>
+<td align="right">0.01</td>
+<td align="right">0.084</td>
+<td align="right">0.906</td>
+</tr>
+
+<tr>
+<td>232.jpg - Type 1</td>
+<td align="right">0.162</td>
+<td align="right">0.587</td>
+<td align="right">0.250</td>
+</tr>
+
+<tr>
+<td>315.jpg - Type 2</td>
+<td align="right">0.000</td>
+<td align="right">0.999</td>
+<td align="right">0.000</td>
+</tr>
+
+<tr>
+<td>206.jpg - Type 2</td>
+<td align="right">0.002</td>
+<td align="right">0.980</td>
+<td align="right">0.019</td>
+</tr>
+
+<tr>
+<td>418.jpg - Type 3</td>
+<td align="right">0.000</td>
+<td align="right">0.996</td>
+<td align="right">0.004</td>
+</tr>
+
+<tr>
+<td>49.jpg  - Type 3</td>
+<td align="right">0.000</td>
+<td align="right">0.994</td>
+<td align="right">0.006</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-14 Test data probabilities - LetNet model</p>
+
+<table>
+<thead>
+<tr>
+<th>Unseen test images</th>
+<th align="right">Type 1</th>
+<th align="right">Type 2</th>
+<th align="right">Type 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>90.jpg  - Type 1</td>
+<td align="right">0.000</td>
+<td align="right">0.001</td>
+<td align="right">0.999</td>
+</tr>
+
+<tr>
+<td>232.jpg - Type 1</td>
+<td align="right">0.256</td>
+<td align="right">0.551</td>
+<td align="right">0.194</td>
+</tr>
+
+<tr>
+<td>315.jpg - Type 2</td>
+<td align="right">0.000</td>
+<td align="right">0.993</td>
+<td align="right">0.007</td>
+</tr>
+
+<tr>
+<td>206.jpg - Type 2</td>
+<td align="right">0.258</td>
+<td align="right">0.529</td>
+<td align="right">0.213</td>
+</tr>
+
+<tr>
+<td>418.jpg - Type 3</td>
+<td align="right">0.002</td>
+<td align="right">0.984</td>
+<td align="right">0.014</td>
+</tr>
+
+<tr>
+<td>49.jpg  - Type 3</td>
+<td align="right">0.001</td>
+<td align="right">0.07</td>
+<td align="right">0.929</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-14 Test data probabilities - AlexNet model</p>
+
+<p>In addition  to the six test images, perturbations were added using the augmentation tool[6] with noise_0.06 , obtaining these results on evaluation. The figures below shows these images:</p>
+
+<p><img src="/img/test_noise_type_1.png" alt="alt text" title="Test Noise Type 1" />
+Figure-12 Noise Type 1</p>
+
+<p><img src="/img/test_noise_type_2.png" alt="alt text" title="Test Noise Type 2" />
+Figure-13 Noise Type 2</p>
+
+<p><img src="/img/test_noise_type_3.png" alt="alt text" title="Test Noise Type 3" />
+Figure-14 Noise Type 3</p>
+
+<table>
+<thead>
+<tr>
+<th>Unseen test images</th>
+<th align="right">Type 1</th>
+<th align="right">Type 2</th>
+<th align="right">Type 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>90__noise0.06.jpg  - Type 1</td>
+<td align="right">0.002</td>
+<td align="right">0.908</td>
+<td align="right">0.09</td>
+</tr>
+
+<tr>
+<td>232__noise0.06.jpg - Type 1</td>
+<td align="right">0.595</td>
+<td align="right">0.216</td>
+<td align="right">0.19</td>
+</tr>
+
+<tr>
+<td>315__noise0.06.jpg - Type 2</td>
+<td align="right">0.513</td>
+<td align="right">0.432</td>
+<td align="right">0.056</td>
+</tr>
+
+<tr>
+<td>206__noise0.06.jpg - Type 2</td>
+<td align="right">0.299</td>
+<td align="right">0.427</td>
+<td align="right">0.273</td>
+</tr>
+
+<tr>
+<td>418__noise0.06.jpg - Type 3</td>
+<td align="right">0.332</td>
+<td align="right">0.015</td>
+<td align="right">0.653</td>
+</tr>
+
+<tr>
+<td>49__noise0.06.jpg  - Type 3</td>
+<td align="right">0.163</td>
+<td align="right">0.432</td>
+<td align="right">0.405</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-15 Test data probabilities - benchmark model</p>
+
+<table>
+<thead>
+<tr>
+<th>Unseen test images</th>
+<th align="right">Type 1</th>
+<th align="right">Type 2</th>
+<th align="right">Type 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>90__noise0.06.jpg  - Type 1</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>232__noise0.06.jpg - Type 1</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>315__noise0.06.jpg - Type 2</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>206__noise0.06.jpg - Type 2</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>418__noise0.06.jpg - Type 3</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>49__noise0.06.jpg  - Type 3</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-16 Test data probabilities - LeNet model</p>
+
+<table>
+<thead>
+<tr>
+<th>Unseen test images</th>
+<th align="right">Type 1</th>
+<th align="right">Type 2</th>
+<th align="right">Type 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>90__noise0.06.jpg  - Type 1</td>
+<td align="right">0.021</td>
+<td align="right">0.316</td>
+<td align="right">0.663</td>
+</tr>
+
+<tr>
+<td>232__noise0.06.jpg - Type 1</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>315__noise0.06.jpg - Type 2</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>206__noise0.06.jpg - Type 2</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>418__noise0.06.jpg - Type 3</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+
+<tr>
+<td>49__noise0.06.jpg  - Type 3</td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-17 Test data probabilities - AlexNet model</p>
+
+<p>The evaluation of all of the three models on unseen test sets are shown in Table-19</p>
+
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th align="right">Accuracy</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Benchmark</td>
+<td align="right">50.59</td>
+</tr>
+
+<tr>
+<td>LeNet</td>
+<td align="right">60.55</td>
+</tr>
+
+<tr>
+<td>AlexNet</td>
+<td align="right">58.40</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table-19 Results unseen data</p>
+
+<p>The table above shows the results of the three models, LetNet and AlexNet outperform the benchmark model, but  not enough to create a robust model that can be rolled out to production.</p>
+
+<h3 id="justification">Justification</h3>
+
+<p>The final model solution outperforms the initial benchmark model results. The best validation and test accuracies for benchmark were 0.514 and 0.483. Instead the final model outperforms these accuracies with these values: 0.676 and 0.658.</p>
+
+<p>However the final model has a high accuracy in training data, about 0.954, which causes this model to suffer overfitting since it has 0.658 of accuracy on test set. For a production use of this solution and since this is a critical health problem, this model is weak and further improvements will be necessary, which will be mentioned in this document.</p>
+
+<h2 id="v-conclusion">V. Conclusion</h2>
+
+<h3 id="free-form-visualization">Free-Form Visualization</h3>
+
+<p>This section is intended to explain how the ConvNet classifies the cervix type. For this section, intermediary features of the network are plotted to understand what these neural networks see with different cervix types. Each of the images below are the result of the convolution layer 1 and convolution layer 2 of the network described in Table-10.</p>
+
+<p>The first row of the image is the six filters or channels of the first convolution and the other rows are the sixteen filters or channels of the second convolution. This filters represent the automated extracted features that the network generates after the training for the given images.</p>
+
+<p>Recalling the results of Table-14 the Figure-15 correspond to the features of image 90.jpg of Type 1 it was predicted as type 3. Figure-16 features of image 315.jpg of Type 2 it was predicted as type 2. The last Figure-17 features of image 418.jpg of type 3 get predicted as type 2.</p>
+
+<p>The network seems to be misclassifying images of type 3 as type 2 and it could be due to the instrument used to perform the screening of the cervix &ndash; it looks like the first rows of these images are kind of similar.</p>
+
+<p><img src="/img/type1_90.jpg.featuremaps.png" alt="alt text" title="Features Map Type 1" />
+Figure-15 Feature Map 90.jpg Type_1</p>
+
+<p><img src="/img/type2_315.jpg.featuremaps.png" alt="alt text" title="Features Map Type 2" />
+Figure-16 Feature Map 315.jpg Type_2</p>
+
+<p><img src="/img/type3_418.jpg.featuremaps.png" alt="alt text" title="Features Map Type 3" />
+Figure-17 Feature Map 418.jpg Type_3</p>
+
+<p>The network finds it difficult to discriminate cervix types for the given images. In the improvement section,  other ideas that can lead to a better model that could improve the results in general will be mentioned.</p>
+
+<h3 id="reflection">Reflection</h3>
+
+<p>Reaching a final solution was a process that took a long time of experimentation with different settings to try to overcome the overfitting of data.</p>
+
+<p>The process can be summarized in the following steps:</p>
+
+<h5 id="data-exploration-1">Data Exploration</h5>
+
+<p>The data was downloaded from Kaggle, uncompressed and analyzed. I found that it was necessary to normalize the image sizes to be consistent with the input of the model that will process it. During the process, different color space were explored and then applied to the model.</p>
+
+<p>In the exploration imaging tools like ImageMagick were applied to the image files to detect corrupt data and a few samples were found</p>
+
+<h5 id="data-modeling">Data Modeling</h5>
+
+<p>At the beginning, it was clear that applying Convolutional Neural Network to images classification problem is probably a good fit to find out a good solution. This project started out on LeNet-5 Architecture, a well known Convolutional Neural Network that has gotten good results of different images classifications like digit classifier and traffic sign predictions among others.</p>
+
+<h5 id="model-experimentation">Model Experimentation</h5>
+
+<p>This process took more time than others since different settings and combination of parameters were performed to pursue the desired results.</p>
+
+<p>Different assumptions were made in this step, such as including  different color spaces in the experiments to see if there are some channels that can better be consumed by the ConvNet and get betters results.</p>
+
+<p>Changing the architecture of the ConvNet and adjusting hyper parameters with the aim of better accuracies were performed in this step.</p>
+
+<h5 id="model-refinement">Model Refinement</h5>
+
+<p>This is an extension of model experimentation that were performed by revisiting the results of the experiments, looking for hints that lead to extra parameters or architecture tuning.</p>
+
+<h5 id="evaluation">Evaluation</h5>
+
+<p>The evaluation was performed through the experimentation process after every training the test set were used to evaluate the model.</p>
+
+<p>A better, final solution, despite all of the efforts to reach a very good model that does not overfit the test set, was not possible.</p>
+
+<h3 id="improvement">Improvement</h3>
+
+<p>There are several improvements that were considered in this project but were not explored due to scope of time or missing knowledge to integrate on this solution.</p>
+
+<h4 id="more-image-preprocessing">More image preprocessing</h4>
+
+<p>Considering this data set are images from cervix an improvement would be to have some preprocessing techniques to find regions of interest within these images and to discard the noise elements present on the images, like metal tools.</p>
+
+<h4 id="applying-more-complex-convnet-architectures">Applying more complex ConvNet Architectures</h4>
+
+<p>During the process I tried to use pre-trained AlexNet architecture, having almost near results to the LetNet model; however, trying even more complex architectures like VGG-16 or ResNet could bring better results.</p>
+
+<h4 id="getting-more-data">Getting more data</h4>
+
+<p>One aspect of this project is that data is not enough to build a robust model, obtaining more data for analysis with more complex methods, like applying clustering or mixture models to get more insights of data variety, will be a very good option to explore. However getting data about cervix screening was difficult.</p>
+
+<p>I’m sure having more time to study and apply the improvements above can lead to a better and more robust solution.</p>
+
+<p>Thanks to Udacity Team and David Edelsohn for their insights and feedback</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><p>OMICS International, &ldquo;Artificial Intelligence Based Semi-automated Screening of Cervical Cancer
+Using a Primary Training Database&rdquo;, <a href="https://www.omicsonline.org/open-access/novel-benchmark-database-of-digitized-and-calibrated-cervical-cells-forartificial-intelligence-based-screening-of-cervical-cancer-ccoa-1000105.php?aid=68453">https://www.omicsonline.org/open-access/novel-benchmark-database-of-digitized-and-calibrated-cervical-cells-forartificial-intelligence-based-screening-of-cervical-cancer-ccoa-1000105.php?aid=68453</a></p></li>
+
+<li><p>The Scientific World Journal,  &ldquo;Intelligent Screening Systems for Cervical Cancer&rdquo;, <a href="http://dx.doi.org/10.1155/2014/810368">http://dx.doi.org/10.1155/2014/810368</a></p></li>
+
+<li><p>Kaggle, &ldquo;Intel &amp; MobileODT Cervical Cancer Screening&rdquo;, <a href="https://www.kaggle.com/c/intel-mobileodt-cervical-cancer-screening">https://www.kaggle.com/c/intel-mobileodt-cervical-cancer-screening</a></p></li>
+
+<li><p>Yann Lecun, &ldquo;LeNet-5, convolutional neural networks&rdquo;, <a href="http://yann.lecun.com/exdb/lenet/">http://yann.lecun.com/exdb/lenet/</a></p></li>
+
+<li><p>Data set used in the project, <a href="https://www.kaggle.com/c/intel-mobileodt-cervical-cancer-screening/data">https://www.kaggle.com/c/intel-mobileodt-cervical-cancer-screening/data</a></p></li>
+
+<li><p>Data Augmentation Tool, <a href="https://github.com/codebox/image_augmentor">https://github.com/codebox/image_augmentor</a></p></li>
+
+<li><p>AlexNet architecture, <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf</a></p></li>
+</ol>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 Moises Vargas. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2017%2fnovember%2fdeep-learning-on-cervix-screening%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://pbs.twimg.com/profile_images/614655468250791936/c1kDNGy2_400x400.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Moisés Vargas</h4>
+    
+      <div id="about-card-bio">I&rsquo;m a Machine Learning addict!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Sr. Software Engineer at Twilio
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Bogotá
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         0 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://moisesvw.github.io/images/sfbridge_.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/moisesvw.github.io\/2017\/november\/deep-learning-on-cervix-screening\/';
+          
+            this.page.identifier = '\/2017\/november\/deep-learning-on-cervix-screening\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://moisesvw.github.io/2017/november/deep-learning-on-cervix-screening/</loc>
+    <lastmod>2017-11-01T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/2017/march/traffic-sign-recognition/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/2017/february/lane-lines-i/</loc>
+    <lastmod>2017-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/archives/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/</loc>
+    <lastmod>2017-11-01T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/machine-learning/</loc>
+    <lastmod>2017-11-01T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/self-driving-cars/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://moisesvw.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

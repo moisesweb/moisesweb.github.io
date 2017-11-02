@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine-learnings on Machine Learning Stuffs</title>
+    <link>https://moisesvw.github.io/machine-learning/</link>
+    <description>Recent content in Machine-learnings on Machine Learning Stuffs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Nov 2017 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://moisesvw.github.io/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deep Learning on Cervix Screening</title>
+      <link>https://moisesvw.github.io/2017/november/deep-learning-on-cervix-screening/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://moisesvw.github.io/2017/november/deep-learning-on-cervix-screening/</guid>
+      <description>Machine Learning Engineer Nanodegree I. Definition Project Overview Cervical cancer has become one of the most important causes of death in women by cancer at the global level [1]. In recent years artificial intelligence has played important role on detection of cervical cancer. Department of Biomedical Engineering of University of Malaya has an article that reviews 103 journal papers from 2010 and 2014, this article analyzes intelligent systems to detect cervical cancer using techniques like artificial neural networks, support vector machines, decision trees, among others [2].</description>
+    </item>
+    
+  </channel>
+</rss>
