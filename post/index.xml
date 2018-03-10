@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Machine Learning Stuffs</title>
+    <link>https://moisesvw.github.io/post/</link>
+    <description>Recent content in Posts on Machine Learning Stuffs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Mar 2018 18:27:04 -0500</lastBuildDate>
+    
+	<atom:link href="https://moisesvw.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Preparing to do Deep Learning</title>
+      <link>https://moisesvw.github.io/2018/march/preparing-to-do-deep-learning/</link>
+      <pubDate>Fri, 09 Mar 2018 18:27:04 -0500</pubDate>
+      
+      <guid>https://moisesvw.github.io/2018/march/preparing-to-do-deep-learning/</guid>
+      <description>This post it&amp;rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.</description>
+    </item>
+    
+  </channel>
+</rss>

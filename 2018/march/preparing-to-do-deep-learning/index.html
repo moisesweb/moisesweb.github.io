@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.37.1">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
-    <title>Lane Lines I</title>
+    <title>Preparing to do Deep Learning</title>
     <meta name="author" content="Moisés Vargas">
     <meta name="keywords" content=", machine-learning, self-driving-cars">
 
@@ -29,21 +29,18 @@
     
 
     
-    <meta name="description" content="Finding Lane Lines on the Road Intro In self-driving car detecting lane lines it is necessary to guide cars in the roads this project shows several techniques needed to achieve this important task. The goal it is to find both left and right lane lines by plotting colored lines over its respective lane lines pixels in the image.
-Finding Lane Lines on the Road
-The goals of this project are the following:">
-    <meta property="og:description" content="Finding Lane Lines on the Road Intro In self-driving car detecting lane lines it is necessary to guide cars in the roads this project shows several techniques needed to achieve this important task. The goal it is to find both left and right lane lines by plotting colored lines over its respective lane lines pixels in the image.
-Finding Lane Lines on the Road
-The goals of this project are the following:">
+    <meta name="description" content="This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
+    <meta property="og:description" content="This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Lane Lines I">
-    <meta property="og:url" content="/2017/february/lane-lines-i/">
+    <meta property="og:title" content="Preparing to do Deep Learning">
+    <meta property="og:url" content="/2018/march/preparing-to-do-deep-learning/">
     <meta property="og:site_name" content="Machine Learning Stuffs">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Machine Learning Stuffs">
-    <meta name="twitter:description" content="Finding Lane Lines on the Road Intro In self-driving car detecting lane lines it is necessary to guide cars in the roads this project shows several techniques needed to achieve this important task. The goal it is to find both left and right lane lines by plotting colored lines over its respective lane lines pixels in the image.
-Finding Lane Lines on the Road
-The goals of this project are the following:">
+    <meta name="twitter:description" content="This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
     
       <meta name="twitter:creator" content="@moisesvw">
     
@@ -227,14 +224,14 @@ ga('send', 'pageview');
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Lane Lines I
+      Preparing to do Deep Learning
     </h1>
   
   <div class="postShorten-meta post-meta">
   
-    <time itemprop="datePublished" datetime="2017-02-23T21:08:37-05:00">
+    <time itemprop="datePublished" datetime="2018-03-09T18:27:04-05:00">
       
-  February 23, 2017
+  March 9, 2018
 
     </time>
   
@@ -248,105 +245,56 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               
 
-<h1 id="finding-lane-lines-on-the-road"><strong>Finding Lane Lines on the Road</strong></h1>
+<p>This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.</p>
 
-<h2 id="intro">Intro</h2>
+<h4 id="miniconda">Miniconda</h4>
 
-<p>In self-driving car detecting lane lines it is necessary to guide cars in the roads
-this project shows several techniques needed to achieve this important task. The
-goal it is to find both left and right lane lines by plotting colored lines over its
-respective lane lines pixels in the image.</p>
+<p>Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms <a href="https://conda.io/miniconda.html">https://conda.io/miniconda.html</a>. The  Mac OS X version it is used in this tutorial. It can be either downloaded by clicking the link on that page or using <code>curl</code> command from Terminal Console in your the system using the an url show below.</p>
 
-<hr />
+<pre><code>$ curl -O https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
 
-<p><strong>Finding Lane Lines on the Road</strong></p>
+</code></pre>
 
-<p>The goals of this project are the following:</p>
+<p>To start installation just execute the command below, and follow instruction you will be asked to read,  type either yes or no and press enter.</p>
 
-<ul>
-<li>Process input image and detect lines</li>
-<li>Filter detected lines to match the lane lines</li>
-<li>Drawn the left and right corresponding lane lines into the image</li>
-<li>Make a pipeline that finds lane lines on the road</li>
-<li>Apply this pipeline to  the test set images and videos provided</li>
-<li>Reflect on your work in a written report</li>
-</ul>
+<pre><code>$ sh Miniconda2-latest-MacOSX-x86_64.sh
+</code></pre>
 
-<hr />
+<p>The next step it is create a conda virtual enviroment that will encapsulate the execution of the code and only will contain the python version and libraries requeried to run deeplearning models with tensorflow. Your environment will have a name after the <code>-n</code> parameter and the python version too. Remember to use <code>source activate</code> and <code>source deactivate</code> to enter or quit you virtual environment.</p>
 
-<h3 id="reflection">Reflection</h3>
+<pre><code>$ conda create -n ml-lab python=3.6
+$ source activate ml-lab
+(ml-lab) $
+</code></pre>
 
-<h3 id="1-description">1. Description</h3>
+<p>After has this setup, just remain to install libraries that will be used, and tensorflow in version 1.6.</p>
 
-<p>The following steps describe how the pipeline was built.</p>
+<pre><code>(ml-lab) $ pip install numpy
+(ml-lab) $ pip install opencv-python
+(ml-lab) $ pip install jupyter
+(ml-lab) $ pip install --upgrade \
+    https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.6.0-py3-none-any.whl
+</code></pre>
 
-<ol>
-<li><p>Detect Image Edges
-Using canny technique to determine edges over all image, it requires the input
-image to be of one channel (gray scale), then a gaussian function with some kernel
-configuration should be apply to remove some noise and finally plug the output of this
-to canny function.</p></li>
+<h4 id="validate-tools-you-just-installed">Validate tools you just installed</h4>
 
-<li><p>Detect lines from Hough Space
-This step detect lines from a given image, to facilitate it the input image
-already one with only edges and in addition it receive a mask as region of
-interest to only focus serching lines in given region. The output it is a collection
-of lines(two points) of different slopes</p></li>
+<p>Let&rsquo;s validate if a least Tensorflow will work with the next commands</p>
 
-<li><p>Drawn the lines which overlap on lane lines.</p>
+<pre><code>$ source activate ml-lab
+(ml-lab) $ python
+Python 3.6.4 |Anaconda, Inc.| (default, Jan 16 2018, 12:04:33) 
+[GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import tensorflow as tf
+&gt;&gt;&gt; test = tf.Session().run(tf.add(5, 7))
+2018-03-09 20:31:58.043920: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+&gt;&gt;&gt; print(&quot;This should be 12 ==&quot;, test)
+This should be 12 == 12
+exit()
+(ml-lab) $
+</code></pre>
 
-<p>The <code>draw_lines</code> function was exended in order to improve the drawing of the lane lines,
-the hough lines of given image were filtered to separate right lane lines from
-left lane lines. Also to filter out noisy lines that does not correspond to the lane lanes.
-Hough lines with positive slope are right ones and the ones with negative slope are the left ones.
-Lines wich probably are the ones that overlap the lane lines should have slopes between this range
-(0.5..0.9) and (-0.5..-0.9) other than those ranges are considered noise.</p>
-
-<p>Having the curated list of lines the next is join all of these by averaging slope and center points.
-then using this slope(m) and center points (x1, y1) extrapolate the line with the help of this
-formula (y - y1) = m(x - y1); in turn out thif will lead to only two lines for left and right lanes. I&rsquo;ve
-created a helpers function <code>extrapolate_line</code> and <code>filter_lines</code> to keep code of <code>draw_lines</code> simple and
-clean as possible.</p>
-
-<p>Sudden movements from the lines between frames were tackle by averaging over all slopes, and centers
-of all frames, it was necesary to soften the drawn between frames. Also I conrideder only average over the
-last 100 paramaters which behave well. I did experiments with 10 but lines was shaking a little, then tried
-1000 and lines some times get out of the lane, but looks like 100 it is a good value for keep the k last
-parameters over last frames.</p>
-
-<p>As an improvement to understand what is happening in the image I added the averaged slope and the current center
-for every frame.</p></li>
-</ol>
-
-<p>After work over these 3 steps, now there is a foundations that can be use to create the functions
-  <code>get_canny_edges</code>, <code>detect_lines</code> and <code>drawn_lane_lines</code> which wil join all provided helper functions
-  to detect and draw the lines over the test images as shown above:</p>
-
-<p><img src="/carnd/p1/image_0.jpg" alt="alt text" title="solidWhiteCurve" /></p>
-
-<p><img src="/carnd/p1/image_2.jpg" alt="alt text" title="solidYellowCurve" /></p>
-
-<p>I&rsquo;ve tried to play with <code>region_of_interest</code> and <code>HSV</code> format to improve the work above, you can find this
-   code at the very bottom of the notebook.</p>
-
-<h3 id="2-identify-potential-shortcomings-with-your-current-pipeline">2. Identify potential shortcomings with your current pipeline</h3>
-
-<p>I noted that the slope of different lines vary a lot it makes some times the line to
-dont&rsquo; stick exactly in the lane line in some curves.</p>
-
-<p>Other shortcomming could be if the road has shadows and other residual material that is near
-the lane lines averaging the slopes and center may don&rsquo;t match at all on the lane lines.</p>
-
-<h3 id="3-suggest-possible-improvements-to-your-pipeline">3. Suggest possible improvements to your pipeline</h3>
-
-<p>I&rsquo;ve tried use the function cv2.inRange for filter out colors except yellow and white this way
-identifying lines coulbe much more easy for canny and hough spaces, but it doesn&rsquo;t show to much
-improvement since tunning and guessing the color ranges for this seem tricky. An posible improvement
-should be try to parametrize well this function go get better results.</p>
-
-<p>An other improvement could be figure it out how to adapt automaticaly the bottom and top position of
-the lines to match the image, for example for challenge video the lines do well but one line is more
-taller than the other. would be nice have a way to get the lines in same top or bottom level.</p>
+<p>At this point you has been installed tested tensorflow. that&rsquo;s will you need to start working with Deep Learning models.</p>
 
               
             </div>
@@ -361,7 +309,7 @@ taller than the other. would be nice have a way to get the lines in same top or 
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="/2017/march/traffic-sign-recognition/" data-tooltip="Traffic Sign Recognition">
+            <a class="post-action-btn btn btn--disabled">
           
             <i class="fa fa-angle-left"></i>
             <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -386,17 +334,17 @@ taller than the other. would be nice have a way to get the lines in same top or 
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
           <i class="fa fa-google-plus"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
           <i class="fa fa-facebook-official"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
           <i class="fa fa-twitter"></i>
         </a>
       </li>
@@ -428,7 +376,7 @@ taller than the other. would be nice have a way to get the lines in same top or 
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="/2017/march/traffic-sign-recognition/" data-tooltip="Traffic Sign Recognition">
+            <a class="post-action-btn btn btn--disabled">
           
             <i class="fa fa-angle-left"></i>
             <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -453,17 +401,17 @@ taller than the other. would be nice have a way to get the lines in same top or 
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
           <i class="fa fa-google-plus"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
           <i class="fa fa-facebook-official"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
           <i class="fa fa-twitter"></i>
         </a>
       </li>
@@ -476,17 +424,17 @@ taller than the other. would be nice have a way to get the lines in same top or 
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
   <ul class="share-options">
     <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
         <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
       </a>
     </li>
     <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
         <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
       </a>
     </li>
     <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2017%2ffebruary%2flane-lines-i%2f">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2f2018%2fmarch%2fpreparing-to-do-deep-learning%2f">
         <i class="fa fa-twitter"></i><span>Share on Twitter</span>
       </a>
     </li>
@@ -629,9 +577,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/moisesvw.github.io\/2017\/february\/lane-lines-i\/';
+          this.page.url = 'https:\/\/moisesvw.github.io\/2018\/march\/preparing-to-do-deep-learning\/';
           
-            this.page.identifier = '\/2017\/february\/lane-lines-i\/'
+            this.page.identifier = '\/2018\/march\/preparing-to-do-deep-learning\/'
           
         };
         (function() {
