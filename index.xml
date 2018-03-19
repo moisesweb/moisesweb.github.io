@@ -6,10 +6,19 @@
     <description>Recent content on Machine Learning Stuffs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Mar 2018 18:27:04 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 19 Mar 2018 08:10:12 -0500</lastBuildDate>
     
 	<atom:link href="https://moisesvw.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Resume</title>
+      <link>https://moisesvw.github.io/resume/</link>
+      <pubDate>Mon, 19 Mar 2018 08:10:12 -0500</pubDate>
+      
+      <guid>https://moisesvw.github.io/resume/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Preparing to do Deep Learning</title>
