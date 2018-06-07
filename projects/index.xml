@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Machine Learning Stuffs</title>
+    <link>https://moisesvw.github.io/projects/</link>
+    <description>Recent content in Projects on Machine Learning Stuffs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://moisesvw.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Self Driving Cars (10) Projects </title>
+      <link>https://moisesvw.github.io/projects/self-driving-cars-10-projects/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://moisesvw.github.io/projects/self-driving-cars-10-projects/</guid>
+      <description>About Here there are all of the projects I&amp;rsquo;ve worked on during the Udacity&amp;rsquo;s Self Driving Car Engineer Nanodegree program.
+Term 1 Finding Lane Lines Detected highway lane lines on a video stream. Used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.
+Traffic Sign Classifier Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures. Performed image pre-processing and validation to guard against overfitting.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Engineer Nanodegree (7) Projects </title>
+      <link>https://moisesvw.github.io/projects/machine-learning-engineer-nanodegree-7-projects/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://moisesvw.github.io/projects/machine-learning-engineer-nanodegree-7-projects/</guid>
+      <description>Machine Learning Engineer Nanodegree 
+About This repository contains projects associated with Udacity&amp;rsquo;s Machine Learning Engineer Nanodegree, that I&amp;rsquo;ve worked on. All the code can be find here https://github.com/moisesvw/udacity-machine-learning
+Projects 1 - Predicting Boston Housing Pricing Built a model to predict the value of a given house in the Boston real estate market using various statistical analysis tools. Identified the best price that a client can sell their house utilizing machine learning.</description>
+    </item>
+    
+  </channel>
+</rss>
