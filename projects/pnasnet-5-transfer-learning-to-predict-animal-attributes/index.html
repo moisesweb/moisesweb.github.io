@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.40.3">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
-    <title>Self Driving Cars (10) Projects </title>
+    <title>PNASNet-5 Transfer Learning to Predict Animal Attributes</title>
     <meta name="author" content="Moisés Vargas">
     <meta name="keywords" content=", machine-learning, self-driving-cars">
 
@@ -29,21 +29,18 @@
     
 
     
-    <meta name="description" content="About Here there are all of the projects I&rsquo;ve worked on during the Udacity&rsquo;s Self Driving Car Engineer Nanodegree program.
-Term 1 Finding Lane Lines Detected highway lane lines on a video stream. Used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.
-Traffic Sign Classifier Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures. Performed image pre-processing and validation to guard against overfitting.">
-    <meta property="og:description" content="About Here there are all of the projects I&rsquo;ve worked on during the Udacity&rsquo;s Self Driving Car Engineer Nanodegree program.
-Term 1 Finding Lane Lines Detected highway lane lines on a video stream. Used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.
-Traffic Sign Classifier Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures. Performed image pre-processing and validation to guard against overfitting.">
+    <meta name="description" content="This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+Metrics There are 85 different attributes per image in the training set.">
+    <meta property="og:description" content="This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+Metrics There are 85 different attributes per image in the training set.">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Self Driving Cars (10) Projects ">
-    <meta property="og:url" content="/projects/self-driving-cars-10-projects/">
+    <meta property="og:title" content="PNASNet-5 Transfer Learning to Predict Animal Attributes">
+    <meta property="og:url" content="/projects/pnasnet-5-transfer-learning-to-predict-animal-attributes/">
     <meta property="og:site_name" content="Machine Learning Stuffs">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Machine Learning Stuffs">
-    <meta name="twitter:description" content="About Here there are all of the projects I&rsquo;ve worked on during the Udacity&rsquo;s Self Driving Car Engineer Nanodegree program.
-Term 1 Finding Lane Lines Detected highway lane lines on a video stream. Used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.
-Traffic Sign Classifier Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures. Performed image pre-processing and validation to guard against overfitting.">
+    <meta name="twitter:description" content="This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+Metrics There are 85 different attributes per image in the training set.">
     
       <meta name="twitter:creator" content="@moisesvw">
     
@@ -236,14 +233,14 @@ ga('send', 'pageview');
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Self Driving Cars (10) Projects 
+      PNASNet-5 Transfer Learning to Predict Animal Attributes
     </h1>
   
   <div class="postShorten-meta post-meta">
   
-    <time itemprop="datePublished" datetime="2018-06-07T00:00:00Z">
+    <time itemprop="datePublished" datetime="2018-06-14T00:00:00Z">
       
-  June 7, 2018
+  June 14, 2018
 
     </time>
   
@@ -257,71 +254,63 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               
 
-<h3 id="about">About</h3>
+<p>This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of <a href="https://www.hackerearth.com/">hackerearth.com Challenge</a>. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.</p>
 
-<p>Here there are all of the projects I&rsquo;ve worked on during the Udacity&rsquo;s <a href="https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013">Self Driving Car Engineer Nanodegree</a> program.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*y1Jb1J12hNyocD7IdXz14g.png" alt="alt text" /></p>
 
-<h3 id="term-1">Term 1</h3>
+<h2 id="metrics">Metrics</h2>
 
-<h4 id="finding-lane-lines-https-github-com-moisesvw-carnd-tree-master-finding-lanelines"><a href="https://github.com/moisesvw/carnd/tree/master/finding-lanelines">Finding Lane Lines</a></h4>
+<p>There are 85 different attributes per image in the training set. Two metrics monitor the model performance. A vector of 85 positions such that each position contains either 0 or 1 represents image characteristics. Each position corresponds to a single attribute; For instance, first eight positions are color attributes such that position with index 0 is black and position with index 7 is yellow. Position with index 84 which is last is domestic.</p>
 
-<p>Detected highway lane lines on a video stream. Used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.</p>
+<h5 id="accuracy">Accuracy</h5>
 
-<p><img src="/images/self-driving-projects/image_0.jpg" alt="alt text" title="solidYellowCurve" /></p>
+<p>The number of correct predicted attributes cross all examples divided by total number of characteristics of all examples.
+  <div>
+  $$ \frac{AllcorrectPredictedAttributes}{85 * m} $$
+  </div></p>
 
-<h4 id="traffic-sign-classifier-https-github-com-moisesvw-traffic-sign-recognition"><a href="https://github.com/moisesvw/Traffic-Sign-Recognition">Traffic Sign Classifier</a></h4>
+<h5 id="loss-cross-entropy">Loss Cross Entropy</h5>
 
-<p>Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures. Performed image pre-processing and validation to guard against overfitting.</p>
+<p>The cost function besides that convey information to the model on how well it is doing to adjust parameters, also indicates the confidence of the results.</p>
 
-<p><img src="/images/self-driving-projects/signs.png" alt="Alt text" title="Traffic Signs" /></p>
+<p>$$-\frac{1}{m} \sum_{i=1}^m \Big[ y_{i} \cdot \log(\hat{y})+(1-y_{i})\cdot \log(1-\hat{y}) \Big]$$</p>
 
-<h4 id="behavioral-cloning-https-github-com-moisesvw-carnd-tree-master-behavioral-cloning"><a href="https://github.com/moisesvw/carnd/tree/master/behavioral-cloning">Behavioral Cloning</a></h4>
+<h2 id="features-and-training">Features and Training</h2>
 
-<p>Built and trained a convolutional neural network for end-to-end driving in a simulator, using TensorFlow and Keras. Used optimization techniques such as regularization and dropout to generalize the network for driving on multiple tracks.</p>
+<p>The extraction of features took roughly 5 hours; using TensorFlowHub I’ve extracted features (bottlenecks) from both train and test images, with the Progressive Neural Architecture Search (PNASNet-5) architecture. After passing all pictures over this network, the result was having a vector containing 4320 features per image.</p>
 
-<p><a href="https://www.youtube.com/watch?v=87LeecbK604"><img src="https://img.youtube.com/vi/87LeecbK604/0.jpg" alt="Results" /></a></p>
+<pre><code>  python retrain.py \
+  — image_dir ./DL3Dataset \
+  — tfhub_module https://tfhub.dev/google/imagenet/pnasnet_large/feature_vector/1
+</code></pre>
 
-<h4 id="advance-lane-finding-https-github-com-moisesvw-carnd-tree-master-advance-lane-lines"><a href="https://github.com/moisesvw/carnd/tree/master/advance-lane-lines">Advance Lane Finding</a></h4>
+<p>The features are feed into two layer network model from Keras; details are <a href="https://github.com/moisesvw/dojo/blob/master/challenge/attributes-of-animals/bottles.ipynb">here</a>. And using 30 epochs; where each epoch runs in less than 5 seconds, I was able to have a model with 98.3% of accuracy. The accuracy keeps in both train and validation sets. The image below shows how this happens and how the metrics perform during training.</p>
 
-<p>Built an advanced lane-finding algorithm using distortion correction, image rectification, color transforms, and gradient thresholding. Identified lane curvature and vehicle displacement. Overcame environmental challenges such as shadows and pavement changes.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*8w_C-MvJhh-6PcLD8yCzBw.gif" alt="alt text" /></p>
 
-<p><a href="https://www.youtube.com/watch?v=f7brnKQixPs"><img src="https://img.youtube.com/vi/f7brnKQixPs/0.jpg" alt="Results" /></a></p>
+<h2 id="results">Results</h2>
 
-<h4 id="vehicle-detection-and-tracking-https-github-com-moisesvw-carnd-tree-master-vehicle-detection-svm-master"><a href="https://github.com/moisesvw/carnd/tree/master/vehicle-detection-svm-master">Vehicle Detection And Tracking</a></h4>
+<p>The model reports excellent performance on train and validation sets up to 98.4% of accuracy and 0.03 of cost on the loss function.</p>
 
-<p>Created a vehicle detection and tracking pipeline with OpenCV, histogram of oriented gradients (HOG), and support vector machines (SVM). Optimized and evaluated the model on video data from a automotive camera taken during highway driving.</p>
+<p>Some images from validation set are sampled and show the predicted attributes and the actual attributes below:</p>
 
-<p><img src="/images/self-driving-projects/bboxes_and_heat.png" alt="Alt text" /></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*zCKtqa5ZfYnJ2o83JaqS8A.gif" alt="alt text" /></p>
 
-<h3 id="term-2">Term 2</h3>
+<p>Two images are randomly selected from test set which are unseen examples given by HackerEarth challenge, uploading the output predictions from the entire test set HackerEarth performance measurement gives 98.4% of accuracy on the test set.</p>
 
-<h4 id="extended-kalman-filter-https-github-com-moisesvw-extended-kalman-filter2d"><a href="https://github.com/moisesvw/extended_kalman_filter2D">Extended Kalman Filter</a></h4>
+<p>Here there are two random images from test set and its predicted attributes.</p>
 
-<p>Implemented an Extended Kalman Filter algorithm in C++ capable of tracking a pedestrian&rsquo;s motion in two dimensions.</p>
+<p><img src="/images/animal_attributes/pred1.png" alt="alt test" /></p>
 
-<h4 id="unscented-kalman-filter-https-github-com-moisesvw-carnd-tree-master-unscented-kalman-filter"><a href="https://github.com/moisesvw/carnd/tree/master/unscented-kalman-filter">Unscented Kalman Filter</a></h4>
+<p><img src="/images/animal_attributes/pred3.png" alt="alt test" /></p>
 
-<p>Implemented an Unscented Kalman Filter algorithm in C++ capable of accurately and performantly tracking a turning object.</p>
+<h2 id="conclusion">Conclusion</h2>
 
-<p><img src="/images/self-driving-projects/kalman.gif" alt="Alt text" title="Kalman" /></p>
+<p>The final model gets excellent results; it does not show any sign of overfitting or bias out of the normal. This model even can be improved by analyzing further how the images were tagged with attributes and explore if all attributes are well tagged to each image.</p>
 
-<h4 id="kidnapped-vehicle-https-github-com-moisesvw-carnd-tree-master-kidnapped-vehicle"><a href="https://github.com/moisesvw/carnd/tree/master/kidnapped-vehicle">Kidnapped Vehicle</a></h4>
+<p>All of the details an code are in this <a href="https://github.com/moisesvw/dojo/tree/master/challenge/attributes-of-animals">GitHub repository</a></p>
 
-<p>Implemented a 2 dimensional particle filter in C++ capable of localizing a vehicle within desired accuracy and time.</p>
-
-<p><img src="/images/self-driving-projects/particles.gif" alt="Alt text" title="Particles" /></p>
-
-<h4 id="pid-controller-https-github-com-moisesvw-carnd-tree-master-pid-control"><a href="https://github.com/moisesvw/carnd/tree/master/pid-control">PID Controller</a></h4>
-
-<p>Implemented a PID controller in C++ to maneuver a vehicle around a track.</p>
-
-<p><img src="/images/self-driving-projects/pid.gif" alt="Alt text" title="PID" /></p>
-
-<h4 id="model-predictive-control-https-github-com-moisesvw-carnd-tree-master-mpc"><a href="https://github.com/moisesvw/carnd/tree/master/mpc">Model Predictive Control</a></h4>
-
-<p>Implemented Model Predictive Control to drive a vehicle around a track even with additional latency between commands.</p>
-
-<p><img src="/images/self-driving-projects/output.gif" alt="Alt text" title="MPC" /></p>
+<p><a href="https://medium.com/@moisesvargas/predict-the-attributes-of-the-animal-using-deep-learning-5bd6cbe01fa5">Medium Post</a></p>
 
               
             </div>
@@ -336,7 +325,7 @@ ga('send', 'pageview');
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="/projects/pnasnet-5-transfer-learning-to-predict-animal-attributes/" data-tooltip="PNASNet-5 Transfer Learning to Predict Animal Attributes">
+            <a class="post-action-btn btn btn--disabled">
           
             <i class="fa fa-angle-left"></i>
             <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -344,7 +333,7 @@ ga('send', 'pageview');
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="/projects/machine-learning-engineer-nanodegree-7-projects/" data-tooltip="Machine Learning Engineer Nanodegree (7) Projects ">
+            <a class="post-action-btn btn btn--default tooltip--top" href="/projects/self-driving-cars-10-projects/" data-tooltip="Self Driving Cars (10) Projects ">
           
             <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
             <i class="fa fa-angle-right"></i>
@@ -361,17 +350,17 @@ ga('send', 'pageview');
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
           <i class="fa fa-google-plus"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
           <i class="fa fa-facebook-official"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
           <i class="fa fa-twitter"></i>
         </a>
       </li>
@@ -403,7 +392,7 @@ ga('send', 'pageview');
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="/projects/pnasnet-5-transfer-learning-to-predict-animal-attributes/" data-tooltip="PNASNet-5 Transfer Learning to Predict Animal Attributes">
+            <a class="post-action-btn btn btn--disabled">
           
             <i class="fa fa-angle-left"></i>
             <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -411,7 +400,7 @@ ga('send', 'pageview');
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="/projects/machine-learning-engineer-nanodegree-7-projects/" data-tooltip="Machine Learning Engineer Nanodegree (7) Projects ">
+            <a class="post-action-btn btn btn--default tooltip--top" href="/projects/self-driving-cars-10-projects/" data-tooltip="Self Driving Cars (10) Projects ">
           
             <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
             <i class="fa fa-angle-right"></i>
@@ -428,17 +417,17 @@ ga('send', 'pageview');
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
           <i class="fa fa-google-plus"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
           <i class="fa fa-facebook-official"></i>
         </a>
       </li>
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
           <i class="fa fa-twitter"></i>
         </a>
       </li>
@@ -451,17 +440,17 @@ ga('send', 'pageview');
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
   <ul class="share-options">
     <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
         <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
       </a>
     </li>
     <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
         <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
       </a>
     </li>
     <li class="share-option">
-      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fself-driving-cars-10-projects%2f">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fmoisesvw.github.io%2fprojects%2fpnasnet-5-transfer-learning-to-predict-animal-attributes%2f">
         <i class="fa fa-twitter"></i><span>Share on Twitter</span>
       </a>
     </li>
@@ -604,9 +593,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/moisesvw.github.io\/projects\/self-driving-cars-10-projects\/';
+          this.page.url = 'https:\/\/moisesvw.github.io\/projects\/pnasnet-5-transfer-learning-to-predict-animal-attributes\/';
           
-            this.page.identifier = '\/projects\/self-driving-cars-10-projects\/'
+            this.page.identifier = '\/projects\/pnasnet-5-transfer-learning-to-predict-animal-attributes\/'
           
         };
         (function() {
