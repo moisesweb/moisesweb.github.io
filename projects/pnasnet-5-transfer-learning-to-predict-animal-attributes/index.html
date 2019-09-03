@@ -19,7 +19,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.40.3">
+    <meta name="generator" content="Hugo 0.46">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
     <title>PNASNet-5 Transfer Learning to Predict Animal Attributes</title>
     <meta name="author" content="Moisés Vargas">
@@ -29,9 +29,9 @@
     
 
     
-    <meta name="description" content="This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+    <meta name="description" content="This project aims to build a predictive model that learn to identify attributes associated with each animal. It was part of hackerearth.com Challenge. It provides 18.000 images of 50 different categories, 12.600 have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
 Metrics There are 85 different attributes per image in the training set.">
-    <meta property="og:description" content="This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+    <meta property="og:description" content="This project aims to build a predictive model that learn to identify attributes associated with each animal. It was part of hackerearth.com Challenge. It provides 18.000 images of 50 different categories, 12.600 have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
 Metrics There are 85 different attributes per image in the training set.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="PNASNet-5 Transfer Learning to Predict Animal Attributes">
@@ -39,7 +39,7 @@ Metrics There are 85 different attributes per image in the training set.">
     <meta property="og:site_name" content="Machine Learning Stuffs">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Machine Learning Stuffs">
-    <meta name="twitter:description" content="This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+    <meta name="twitter:description" content="This project aims to build a predictive model that learn to identify attributes associated with each animal. It was part of hackerearth.com Challenge. It provides 18.000 images of 50 different categories, 12.600 have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
 Metrics There are 85 different attributes per image in the training set.">
     
       <meta name="twitter:creator" content="@moisesvw">
@@ -72,13 +72,16 @@ Metrics There are 85 different attributes per image in the training set.">
     
       
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-92619527-1', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-92619527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 
     
@@ -254,22 +257,22 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               
 
-<p>This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of <a href="https://www.hackerearth.com/">hackerearth.com Challenge</a>. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.</p>
+<p>This project aims to build a predictive model that learn to identify attributes associated with each animal. It was part of <a href="https://www.hackerearth.com/">hackerearth.com Challenge</a>. It provides 18.000 images of 50 different categories, 12.600 have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.</p>
 
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*y1Jb1J12hNyocD7IdXz14g.png" alt="alt text" /></p>
 
 <h2 id="metrics">Metrics</h2>
 
-<p>There are 85 different attributes per image in the training set. Two metrics monitor the model performance. A vector of 85 positions such that each position contains either 0 or 1 represents image characteristics. Each position corresponds to a single attribute; For instance, first eight positions are color attributes such that position with index 0 is black and position with index 7 is yellow. Position with index 84 which is last is domestic.</p>
+<p>There are 85 different attributes per image in the training set. Two metrics monitor the model performance. A vector of 85 positions such that each location contains either 0 or 1 represents image characteristics. Each position corresponds to a single attribute; For instance, the first eight positions are color attributes such that position with index 0 is black and position with index 7 is yellow. The position with index 84, which is last is domestic.</p>
 
 <h5 id="accuracy">Accuracy</h5>
 
-<p>The number of correct predicted attributes cross all examples divided by total number of characteristics of all examples.
+<p>The number of correct predicted attributes cross all examples divided by a total number of characteristics of all examples.
   <div>
   $$ \frac{AllcorrectPredictedAttributes}{85 * m} $$
   </div></p>
 
-<h5 id="loss-cross-entropy">Loss Cross Entropy</h5>
+<h5 id="loss-cross-entropy">Loss Cross-Entropy</h5>
 
 <p>The cost function besides that convey information to the model on how well it is doing to adjust parameters, also indicates the confidence of the results.</p>
 
@@ -284,21 +287,20 @@ ga('send', 'pageview');
   — tfhub_module https://tfhub.dev/google/imagenet/pnasnet_large/feature_vector/1
 </code></pre>
 
-<p>The features are feed into two layer network model from Keras; details are <a href="https://github.com/moisesvw/dojo/blob/master/challenge/attributes-of-animals/bottles.ipynb">here</a>. And using 30 epochs; where each epoch runs in less than 5 seconds, I was able to have a model with 98.3% of accuracy. The accuracy keeps in both train and validation sets. The image below shows how this happens and how the metrics perform during training.</p>
+<p>The features are feed into a two-layer network model from Keras; details are <a href="https://github.com/moisesvw/dojo/blob/master/challenge/attributes-of-animals/bottles.ipynb">here</a>. And using 30 epochs; where each epoch runs in less than 5 seconds, I was able to have a model with 98.3% of accuracy. The accuracy keeps in both train and validation sets. The image below shows how this happens and how the metrics perform during training.</p>
 
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*8w_C-MvJhh-6PcLD8yCzBw.gif" alt="alt text" /></p>
 
 <h2 id="results">Results</h2>
 
-<p>The model reports excellent performance on train and validation sets up to 98.4% of accuracy and 0.03 of cost on the loss function.</p>
-
-<p>Some images from validation set are sampled and show the predicted attributes and the actual attributes below:</p>
+<p>The model reports excellent performance on train and validation sets up to 98.4% of accuracy and 0.03 of cost on the loss function.
+Some images from the validation set are sampled and show the predicted attributes and the actual attributes below:</p>
 
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*zCKtqa5ZfYnJ2o83JaqS8A.gif" alt="alt text" /></p>
 
-<p>Two images are randomly selected from test set which are unseen examples given by HackerEarth challenge, uploading the output predictions from the entire test set HackerEarth performance measurement gives 98.4% of accuracy on the test set.</p>
+<p>Two pictures are randomly selected from the test set which are unseen examples given by HackerEarth challenge, uploading the output predictions from the entire test set HackerEarth performance measurement gives 98.4% of accuracy on the test set.</p>
 
-<p>Here there are two random images from test set and its predicted attributes.</p>
+<p>Here there are two random images from the test set and its predicted attributes.</p>
 
 <p><img src="/images/animal_attributes/pred1.png" alt="alt test" /></p>
 
@@ -308,7 +310,7 @@ ga('send', 'pageview');
 
 <p>The final model gets excellent results; it does not show any sign of overfitting or bias out of the normal. This model even can be improved by analyzing further how the images were tagged with attributes and explore if all attributes are well tagged to each image.</p>
 
-<p>All of the details an code are in this <a href="https://github.com/moisesvw/dojo/tree/master/challenge/attributes-of-animals">GitHub repository</a></p>
+<p>All of the details an code are in this <a href="https://github.com/moisesvw/dojo/tree/master/challenge/attributes-of-animals">GitHub repository.</a></p>
 
 <p><a href="https://medium.com/@moisesvargas/predict-the-attributes-of-the-animal-using-deep-learning-5bd6cbe01fa5">Medium Post</a></p>
 
@@ -380,7 +382,7 @@ ga('send', 'pageview');
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2018 Moises Vargas. All Rights Reserved
+    &copy; 2019 Moises Vargas. All Rights Reserved
   </span>
 </footer>
 

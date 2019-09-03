@@ -17,7 +17,7 @@
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://moisesvw.github.io/projects/pnasnet-5-transfer-learning-to-predict-animal-attributes/</guid>
-      <description>This project aims to build a predictive model that learn to identify attributes associated to each animal. It was part of hackerearth.com Challenge. HackerEarth provides 18.000 images of 50 different animals. 12.600 images have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
+      <description>This project aims to build a predictive model that learn to identify attributes associated with each animal. It was part of hackerearth.com Challenge. It provides 18.000 images of 50 different categories, 12.600 have animal characteristics. These characteristics are treated as labels to train a predictive model that learns to map animal images to attributes. This set of 12600 images will be the training set.
 Metrics There are 85 different attributes per image in the training set.</description>
     </item>
     
