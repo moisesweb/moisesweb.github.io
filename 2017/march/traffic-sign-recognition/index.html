@@ -29,18 +29,18 @@
     
 
     
-    <meta name="description" content="Build a Traffic Sign Recognition Project The goals / steps of this project are the following:
- Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the new images Summarize the results with a written report  Data Set Summary &amp; Exploration 1.">
-    <meta property="og:description" content="Build a Traffic Sign Recognition Project The goals / steps of this project are the following:
- Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the new images Summarize the results with a written report  Data Set Summary &amp; Exploration 1.">
+    <meta name="description" content="Build a Traffic Sign Recognition Project The goals/steps of this project are the following:
+ Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the unseen photos Summarize the results with a written report  Data Set Summary &amp; Exploration 1.">
+    <meta property="og:description" content="Build a Traffic Sign Recognition Project The goals/steps of this project are the following:
+ Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the unseen photos Summarize the results with a written report  Data Set Summary &amp; Exploration 1.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Traffic Sign Recognition">
     <meta property="og:url" content="/2017/march/traffic-sign-recognition/">
     <meta property="og:site_name" content="Machine Learning Stuffs">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Machine Learning Stuffs">
-    <meta name="twitter:description" content="Build a Traffic Sign Recognition Project The goals / steps of this project are the following:
- Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the new images Summarize the results with a written report  Data Set Summary &amp; Exploration 1.">
+    <meta name="twitter:description" content="Build a Traffic Sign Recognition Project The goals/steps of this project are the following:
+ Load the data set (see below for links to the project data set) Explore, summarize and visualize the data set Design, train and test a model architecture Use the model to make predictions on new images Analyze the softmax probabilities of the unseen photos Summarize the results with a written report  Data Set Summary &amp; Exploration 1.">
     
       <meta name="twitter:creator" content="@moisesvw">
     
@@ -259,14 +259,14 @@ if (!doNotTrack) {
 
 <h1 id="build-a-traffic-sign-recognition-project"><strong>Build a Traffic Sign Recognition Project</strong></h1>
 
-<p>The goals / steps of this project are the following:</p>
+<p>The goals/steps of this project are the following:</p>
 
 <ul>
 <li>Load the data set (see below for links to the project data set)</li>
 <li>Explore, summarize and visualize the data set</li>
 <li>Design, train and test a model architecture</li>
 <li>Use the model to make predictions on new images</li>
-<li>Analyze the softmax probabilities of the new images</li>
+<li>Analyze the softmax probabilities of the unseen photos</li>
 <li>Summarize the results with a written report</li>
 </ul>
 
@@ -291,7 +291,7 @@ signs data set:</p>
 <p>The code for this step is contained in the third code cell of the IPython notebook.</p>
 
 <p>Here is an exploratory visualization of the data set. It is a bar chart showing the numbers
-of occurrences of each label in data set.</p>
+of occurrences of each label in the data set.</p>
 
 <p>Here I can see basic summary for the labels above:
   * Label 2 - (&ldquo;Speed limit (50km/h)&rdquo;) it is the label with more example about 2000 examples
@@ -305,7 +305,7 @@ of occurrences of each label in data set.</p>
       * <img src="/carnd/p2/examples/32_passing_limits.png" alt="alt text" title="End of all speed and passing limits" /></p>
 
 <p>I&rsquo;ll perform some experiments in training and keep in mind that maybe data augmentation will be
-necessary for refine the final model.</p>
+necessary to refining the final model.</p>
 
 <p><img src="/carnd/p2/examples/labels_exploration.png" alt="alt text" title="Visualization" /></p>
 
@@ -313,9 +313,9 @@ necessary for refine the final model.</p>
 
 <h4 id="1-preprocessing-data">1. Preprocessing Data</h4>
 
-<p>Before starting any design or changes I wanted to consider a baseline results using the <a href="http://yann.lecun.com/exdb/lenet/index.html">LetNet-5 Convolutional Neural Network</a>. In the baseline step I feed the LetNet5 with the training set and measure performance on both training and testing sets. The data feed in this step has not any pre-processing changes.</p>
+<p>Before starting any design or changes, I wanted to consider baseline results using the <a href="http://yann.lecun.com/exdb/lenet/index.html">LetNet-5 Convolutional Neural Network</a>. In the baseline step, I feed the LetNet5 with the training set and measure performance on both training and testing sets. The data feed in this step has not any pre-processing changes.</p>
 
-<p>The results below shows a Baseline - Validation Accuracy = 0.878 and Baseline Test Accuracy = 0.867. With this base results, next step is improve them by pre-processing data and performing design change in LetNet-5 Architecture.</p>
+<p>The results below shows a Baseline - Validation Accuracy = 0.878 and Baseline Test Accuracy = 0.867. With this base results, the next step is to improve them by pre-processing data and to perform design change in LetNet-5 Architecture.</p>
 
 <pre><code>*Baseline - EPOCH 1 ...
 *Baseline - Validation Accuracy = 0.639
@@ -348,14 +348,14 @@ Baseline Test Accuracy = 0.867
 <li>Normalization</li>
 </ul>
 
-<p>I normalized the image data by subtracting 128 pixels from the image and then divided by 128, it will make data be centered around zero which it is desirable for the optimizer.</p>
+<p>I normalized the image data by subtracting 128 pixels from the image and then divided by 128, and it will make data be centered around zero, which it is desirable for the optimizer.</p>
 
 <p><img src="/carnd/p2/examples/9_no_passing_normalized.png" alt="alt text" title="Normalized example" />
   <img src="/carnd/p2/examples/9_no_passing.png" alt="alt text" title="raw example" /></p>
 
 <h4 id="2-data">2. Data</h4>
 
-<p>The data it is split into training, validation and test sets, the sklearn function shuffle is used to randomize the training data in the fifteenth code cell of the IPython notebook.</p>
+<p>The data is split into training, validation, and test sets, the sklearn function shuffle is used to randomize the training data in the fifteenth code cell of the IPython notebook.</p>
 
 <p>My final training set had 90300 number of images. My validation set and test set had 4410 and 12630 number of images.</p>
 
@@ -367,9 +367,9 @@ The training dataset was augmented with the following steps</p>
 
 <ol>
 <li>Per class randomly select an image from that class</li>
-<li>Apply randomly one of these transformation (clipped_zoom, bright<em>trasform, rotate</em>) with random parameters</li>
+<li>Apply randomly one of these transformations (clipped_zoom, bright<em>trasform, rotate</em>) with random parameters</li>
 <li>Append the new augmented image to a list</li>
-<li>repeat steps 1 to 3 until number of elements of the list plus number of example of current class sums 2100</li>
+<li>repeat steps 1 to 3 until the number of elements of the list plus number of example of current class sums 2100</li>
 <li>append the augmented list to the current training data</li>
 </ol>
 
@@ -388,17 +388,17 @@ The training dataset was augmented with the following steps</p>
 
 <p><img src="/carnd/p2/examples/9_no_passing_bright.png" alt="alt text" title="augmentation example" /> <img src="/carnd/p2/examples/9_no_passing_zoom.png" alt="alt text" title="augmentation example" />  <img src="/carnd/p2/examples/9_no_passing_rotate.png" alt="alt text" title="augmentation example" /></p>
 
-<p>The data augmentation only it is performed as step in the final model to gain more accuracy.</p>
+<p>The data augmentation only it is performed as a step in the final model to gain more accuracy.</p>
 
 <p>The difference between the original data set and the augmented data set is the following:</p>
 
-<pre><code>* All classes has same number of examples 2100 per class
-* The augmented dataset has 90300 images in total
+<pre><code>* All classes have the same number of examples 2100 per class
+* The expanded dataset has 90300 images in total
 </code></pre>
 
 <h4 id="3-model-architecture">3. Model Architecture</h4>
 
-<p>The code for my final model is located in the fourteenth cell of the ipython notebook.</p>
+<p>The code for my final model is located in the fourteenth cell of the Jupyter notebook.</p>
 
 <p>My final model consisted of the following layers:</p>
 
@@ -506,14 +506,14 @@ The training dataset was augmented with the following steps</p>
 
 <h4 id="4-training">4. Training</h4>
 
-<p>The code for training the model is located in the fifteenth and sixteenth cells of the ipython notebook.</p>
+<p>The code for training the model is located in the fifteenth and sixteenth cells of the Jupyter notebook.</p>
 
-<p>To train the model, I used an AdamOptimizer with learning rate of 0.001, EPOCHS 15 and BATCH_SIZE 128.
-Two dropouts were setup to 0.75.</p>
+<p>To train the model, I used an AdamOptimizer with a learning rate of 0.001, EPOCHS 15, and BATCH_SIZE 128.
+Two dropouts were set up to 0.75.</p>
 
-<p>The model was trained inside a tensor flow session in which iterate over the EPOCHS, in each EPOCH pass training data was randomize with <code>sklearn#shuffle</code> function, the training operation was performed multiple times according number of BATCHES in the training set and an accuracy measure was performed on both validation set and the last batch of the training set.</p>
+<p>The model was trained inside a tensor flow session in which iterate over the EPOCHS, in each EPOCH pass training data was randomize with <code>sklearn#shuffle</code> function, the training operation was performed multiple times according to number of BATCHES in the training set and an accuracy measure was performed on both validation set and the last batch of the training set.</p>
 
-<p>To run the training operation the feed dictionary contains the batches for examples, labels and the probability used for the dropout layer.</p>
+<p>To run the training operation; the feed dictionary contains the batches for examples, labels, and the probability used for the dropout layer.</p>
 
 <h4 id="5-experiments">5. Experiments</h4>
 
@@ -523,32 +523,32 @@ Two dropouts were setup to 0.75.</p>
 <li>What was the first architecture that was tried and why was it chosen?</li>
 <li>What were some problems with the initial architecture?</li>
 
-<li><p>How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.</p></li>
+<li><p>How was the architecture adjusted, and why was it changed? Typical adjustments could include selecting a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc.), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. High accuracy on the training set but low accuracy on the validation set indicates overfitting; a low accuracy on both sets indicates underfitting.</p></li>
 
 <li><p>Which parameters were tuned? How were they adjusted and why?</p></li>
 
-<li><p>What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?</p></li>
+<li><p>What are some of the essential design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?</p></li>
 
 <li><p>What architecture was chosen?</p></li>
 
 <li><p>Why did you believe it would be relevant to the traffic sign application?</p></li>
 
-<li><p>How does the final model&rsquo;s accuracy on the training, validation and test set provide evidence that the model is working well?</p></li>
+<li><p>How does the final model&rsquo;s accuracy on the training, validation and test sets provide evidence that the model is working well?</p></li>
 </ul>
 
 <p>I&rsquo;ll try to address the questions above in next lines;</p>
 
-<p>LeNet-5 was the architecture used in this project, it is a well known neural network, it appear roughly in 1998 and it is well suited for recognize visual patters directly from pixels. <a href="http://yann.lecun.com/exdb/lenet/index.html">LetNet-5</a></p>
+<p>LeNet-5 was the architecture used in this project, it is a well known neural network, it appear roughly in 1998, and it is well suited to recognize visual patterns directly from pixels. <a href="http://yann.lecun.com/exdb/lenet/index.html">LetNet-5</a></p>
 
-<p>To achieve the results above, the first model was trained with original LeNet-5 architecture, not getting good results since both validation and test accuracies were poor, the next step was increase the number of EPOCHS that did not help at all the validation accuracy did not over come 0.868 and the test accuracy was 0.858 after 50 EPOCHS.</p>
+<p>To achieve the results above, the first model was trained with original LeNet-5 architecture, not getting good results since both validation and test accuracies were poor, the next step was increasing the number of EPOCHS that did not help at all the validation accuracy did not overcome 0.868 and the test accuracy was 0.858 after 50 EPOCHS.</p>
 
-<p>At that point data was not normalized, the next parameter to tune was learning rate by increasing it to 0.01 the both validation and test accuracies were down to less than 0.058. Decreasing learning rate to 0.0001 with 50 epochs ends in same result that increasing epochs at the first time. At this point a possible conclusion is that LeNet-5 can not learn with data which is not normalized.</p>
+<p>At that point, data was not normalized; the next parameter to tune was learning rate by increasing it to 0.01 both validation, and test accuracies were down to less than 0.058. Decreasing learning rate to 0.0001 with 50 epochs ends in the same result that increasing epochs for the first time. At this point, a possible conclusion is that LeNet-5 can not learn with data which is not normalized.</p>
 
 <p>The next step was normalizing data and repeat training with original LetNet-5, learning rate 0.001 and 50 epochs, this time model get a Validation Accuracy = 0.945 and Test Accuracy = 0.934.</p>
 
-<p>Next step was trying to add more complexity to the net by increasing filter from 6 to 20 and from 16 to 50 respectively for the two  convolution layers; under the assumption that increasing filter would give to the network ability to differentiate more between 43 labels rather than 10 labels. in the same sense the first two fully connected layers outputs were increase a little. Having these changes and trained with 50 epochs and rate limit of 0.001 the network training accuracy was 1.000,  validation accuracy was 0.970 and test accuracy was 0.947.</p>
+<p>Next step was trying to add more complexity to the net by increasing filter from 6 to 20 and from 16 to 50 respectively for the two convolution layers; under the assumption that increasing filter would give to the network ability to differentiate more between 43 labels rather than ten labels. in the same sense the first two fully connected layers outputs were increase a little. Having these changes and trained with 50 epochs and rate limit of 0.001 the network training accuracy was 1.000,  validation accuracy was 0.970, and test accuracy was 0.947.</p>
 
-<p>Under assumption that model it is over fitting data, two dropout layers were added to the network, the table below shows the dropouts values and its results</p>
+<p>Under the assumption that model it is overfitting data, two dropout layers were added to the network, the table below shows the dropouts values and its results</p>
 
 <table>
 <thead>
@@ -633,7 +633,7 @@ Two dropouts were setup to 0.75.</p>
 </tbody>
 </table>
 
-<p>Despite that training accuracy and validation are kind of far from each other and it could be an overfitting sign, the test accuracy with respect the validation accuracy looks more consistent and they are in a good level of accuracy.</p>
+<p>Despite that training accuracy and validation are kind of far from each other, and it could be an overfitting sign, the test accuracy with respect the validation accuracy looks more consistent, and they are in a right level of accuracy.</p>
 
 <h3 id="test-a-model-on-new-images">Test a Model on New Images</h3>
 
@@ -646,7 +646,7 @@ Two dropouts were setup to 0.75.</p>
 <img src="/carnd/p2/test_images/12_priority_road_1.jpg" alt="alt text" title="Traffic Sign 7" /> <img src="/carnd/p2/test_images/13_yield_1.jpg" alt="alt text" title="Traffic Sign 8" /> <img src="/carnd/p2/test_images/17_no_entry_1.jpg" alt="alt text" title="Traffic Sign 9" />
 <img src="/carnd/p2/test_images/25_road_work_1.jpg" alt="alt text" title="Traffic Sign 10" /> <img src="/carnd/p2/test_images/31_wild_animals.jpg" alt="alt text" title="Traffic Sign 11" /> <img src="/carnd/p2/test_images/36_Gostraightorright_1.jpg" alt="alt text" title="Traffic Sign 12" /></p>
 
-<p>The ten image (wild animals) might be difficult to classify because it is similar to the seven (road work) or maybe the image(road work) might be classified as (wild animals)</p>
+<p>The ten images (wild animals) might be difficult to classify because it is similar to the seven (road work) or maybe the image(road work) might be classified as (wild animals)</p>
 
 <h4 id="2-discuss-the-model-s-predictions-on-new-traffic-signs">2. Discuss the model&rsquo;s predictions on new traffic signs.</h4>
 
@@ -727,7 +727,7 @@ Two dropouts were setup to 0.75.</p>
 
 <p>The model was able to correctly guess 10 of the 12 traffic signs, which gives an accuracy of 83.33%. This compares maybe not favorably to the accuracy on the test set of 96.5%.</p>
 
-<p>The new images are not to fit to avoid external noise provided by the behind landscape of the picture. for example the prediction for 2_speed_limit_50_1 this image has in behind lot of tree branches maybe that&rsquo;s why the model predicted wrong this example. It should be consider to either add more example with different backgrounds or pre-process more the new data to squeeze the background and just focus the signal it self.</p>
+<p>The new images are not to fit to avoid external noise provided by the behind landscape of the picture. For example, the prediction for 2_speed_limit_50_1 this image has in behind a lot of tree branches maybe that&rsquo;s why the model predicted wrong this example. It should be considered to either add more example with different backgrounds or pre-process more the new data to squeeze the background and just focus the signal itself.</p>
 
 <h4 id="3-describe-model-certainty">3. Describe model certainty</h4>
 
@@ -735,7 +735,7 @@ Two dropouts were setup to 0.75.</p>
 
 <p>The code for making predictions on my final model is located in the twenty-second cell of the Ipython notebook.</p>
 
-<p>Some scores for the top 5 softmax are to small to be represented by 3 decimals, for that reason there will be scores of 0.100 in one class and 0.000 in others. meaning that they have very small probabilities. but it keep the rank.</p>
+<p>Some scores for the top 5 softmax are too small to be represented by three decimals, for that reason, there will be scores of 0.100 in one class and 0.000 in others, which means that they have tiny probabilities. But it keeps the rank.</p>
 
 <h4 id="for-the-1th-image">For the 1th image:</h4>
 
