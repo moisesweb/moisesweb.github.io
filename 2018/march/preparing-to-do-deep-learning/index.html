@@ -29,18 +29,18 @@
     
 
     
-    <meta name="description" content="This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
-Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
-    <meta property="og:description" content="This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
-Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
+    <meta name="description" content="This post&rsquo;s about how to install TensorFlow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local environment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows creating virtual environments; this enables different python versions and libraries isolated from others. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
+    <meta property="og:description" content="This post&rsquo;s about how to install TensorFlow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local environment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows creating virtual environments; this enables different python versions and libraries isolated from others. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Preparing to do Deep Learning">
     <meta property="og:url" content="/2018/march/preparing-to-do-deep-learning/">
     <meta property="og:site_name" content="Machine Learning Stuffs">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Machine Learning Stuffs">
-    <meta name="twitter:description" content="This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
-Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
+    <meta name="twitter:description" content="This post&rsquo;s about how to install TensorFlow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local environment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows creating virtual environments; this enables different python versions and libraries isolated from others. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.">
     
       <meta name="twitter:creator" content="@moisesvw">
     
@@ -257,29 +257,29 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               
 
-<p>This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.</p>
+<p>This post&rsquo;s about how to install TensorFlow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local environment using either python 2.7 or python 3.6.</p>
 
 <h4 id="miniconda">Miniconda</h4>
 
-<p>Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms <a href="https://conda.io/miniconda.html">https://conda.io/miniconda.html</a>. The  Mac OS X version it is used in this tutorial. It can be either downloaded by clicking the link on that page or using <code>curl</code> command from Terminal Console in your the system using the an url show below.</p>
+<p>Miniconda is a package manager that allows creating virtual environments; this enables different python versions and libraries isolated from others. The next link points to the miniconda version for different O.S platforms <a href="https://conda.io/miniconda.html">https://conda.io/miniconda.html</a>. The  Mac OS X version it is used in this tutorial. It can be either downloaded by clicking the link on that page or using <code>curl</code> command from Terminal Console in your the system using the URL shown below.</p>
 
 <pre><code>$ curl -O https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
 
 </code></pre>
 
-<p>To start installation just execute the command below, and follow instruction you will be asked to read,  type either yes or no and press enter.</p>
+<p>To start the installation, execute the command below, and follow the instruction you will be asked to read,  type either yes or no and press enter.</p>
 
 <pre><code>$ sh Miniconda2-latest-MacOSX-x86_64.sh
 </code></pre>
 
-<p>The next step it is create a conda virtual enviroment that will encapsulate the execution of the code and only will contain the python version and libraries requeried to run deeplearning models with tensorflow. Your environment will have a name after the <code>-n</code> parameter and the python version too. Remember to use <code>source activate</code> and <code>source deactivate</code> to enter or quit you virtual environment.</p>
+<p>The next step is to create a conda virtual environment that will encapsulate the execution of the code, then it only will contain the python version and libraries required to run deep learning models with tensorflow. Your environment will have a name after the <code>-n</code> parameter and the python version also will be defined. Remember to use <code>source activate</code> and <code>source deactivate</code> to enter or quit your virtual environment.</p>
 
 <pre><code>$ conda create -n ml-lab python=3.6
 $ source activate ml-lab
 (ml-lab) $
 </code></pre>
 
-<p>After has this setup, just remain to install libraries that will be used, and tensorflow in version 1.6.</p>
+<p>The next step is to install libraries that will be used like numpy to matrix operations, OpenCV to load images and return it in numpy equivalent, Jupyter notebook to write and test code, and TensorFlow on version 1.6.</p>
 
 <pre><code>(ml-lab) $ pip install numpy
 (ml-lab) $ pip install opencv-python
@@ -306,7 +306,7 @@ exit()
 (ml-lab) $
 </code></pre>
 
-<p>At this point you has been installed tested tensorflow. that&rsquo;s will you need to start working with Deep Learning models. A post about how to run a plants classifier can be found here <a href="https://medium.com/@moisesvargas/deep-learning-inception-in-few-steps-e5340021990c">https://medium.com/@moisesvargas/deep-learning-inception-in-few-steps-e5340021990c</a></p>
+<p>At this point, you have been installed tested TensorFlow. That&rsquo;s will you need to start working with Deep Learning models. A post about how to run a plants classifier can be found here <a href="https://medium.com/@moisesvargas/deep-learning-inception-in-few-steps-e5340021990c">https://medium.com/@moisesvargas/deep-learning-inception-in-few-steps-e5340021990c</a></p>
 
               
             </div>
@@ -514,8 +514,8 @@ exit()
                   Mar 3, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">This post it&rsquo;s about how to install tensorflow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local enviroment using either python 2.7 or python 3.6.
-Miniconda Miniconda is a package manager that allows to create virtual environments, this enables have different python versions and libraries isolated. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.</div>
+              <div class="media-content hide-xs font-merryweather">This post&rsquo;s about how to install TensorFlow, numpy, OpenCV and Jupyter to be prepared to run Deep Learning models in a local environment using either python 2.7 or python 3.6.
+Miniconda Miniconda is a package manager that allows creating virtual environments; this enables different python versions and libraries isolated from others. The next link points to the miniconda version for different O.S platforms https://conda.io/miniconda.html. The Mac OS X version it is used in this tutorial.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
