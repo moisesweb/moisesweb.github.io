@@ -28,8 +28,8 @@ Metrics There are 85 different attributes per image in the training set.</descri
       
       <guid>https://moisesvw.github.io/projects/self-driving-cars-10-projects/</guid>
       <description>About Here there are all of the projects I&amp;rsquo;ve worked on during the Udacity&amp;rsquo;s Self Driving Car Engineer Nanodegree program.
-Term 1 Finding Lane Lines Detected highway lane lines on a video stream. Used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.
-Traffic Sign Classifier Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures. Performed image pre-processing and validation to guard against overfitting.</description>
+Term 1 Finding Lane Lines I have detected highway lane lines on a video stream — used OpenCV image analysis techniques to identify lane lines, including Hough Transforms and Canny edge detection.
+Traffic Sign Classifier Built and trained a deep neural network to classify traffic signs, using TensorFlow. Experimented with different network architectures.</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@ Traffic Sign Classifier Built and trained a deep neural network to classify traf
       <guid>https://moisesvw.github.io/projects/machine-learning-engineer-nanodegree-7-projects/</guid>
       <description>Machine Learning Engineer Nanodegree 
 About This repository contains projects associated with Udacity&amp;rsquo;s Machine Learning Engineer Nanodegree, that I&amp;rsquo;ve worked on. All the code can be find here https://github.com/moisesvw/udacity-machine-learning
-Projects 1 - Predicting Boston Housing Pricing Built a model to predict the value of a given house in the Boston real estate market using various statistical analysis tools. Identified the best price that a client can sell their house utilizing machine learning.</description>
+Projects 1 - Predicting Boston Housing Pricing Built a model to predict the value of a given house in the Boston real estate market using various statistical analysis tools. Identified the best price that a client can sell their home utilizing machine learning.</description>
     </item>
     
     <item>
