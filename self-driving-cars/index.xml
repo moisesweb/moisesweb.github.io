@@ -27,7 +27,7 @@
       <pubDate>Thu, 23 Feb 2017 21:08:37 -0500</pubDate>
       
       <guid>https://moisesvw.github.io/2017/february/lane-lines-i/</guid>
-      <description>Finding Lane Lines on the Road Intro In self-driving car detecting lane lines it is necessary to guide cars in the roads this project shows several techniques needed to achieve this important task. The goal it is to find both left and right lane lines by plotting colored lines over its respective lane lines pixels in the image.
+      <description>Finding Lane Lines on the Road Intro In self-driving car detecting lane lines, it is necessary to guide vehicles in the roads This project shows several techniques needed to achieve this important task. The the goal is to find both left and right lane lines by plotting colored lines over its respective lane lines pixels in the image.
 Finding Lane Lines on the Road
 The goals of this project are the following:</description>
     </item>
